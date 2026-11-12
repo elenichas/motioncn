@@ -1,16 +1,55 @@
-# motioncn
+<div align="center">
 
-38 animated extensions for [shadcn/ui](https://ui.shadcn.com), on a Figma-style infinite canvas.
-You can install them with the shadcn CLI, re-theme them and audit them for accessibility. MIT licensed.
+# ✨ motioncn
 
-**Stack:** React 19 · TypeScript · Tailwind CSS v4 · shadcn/ui (Radix, cmdk, input-otp) · Motion (`motion/react`) · Vite
+**Animated, accessible extensions for [shadcn/ui](https://ui.shadcn.com) — explored on a Figma‑style infinite canvas.**
+
+38 components · 8 categories · 8 themes × light/dark · WCAG AA · install with the shadcn CLI
+
+![React 19](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
+![Tailwind v4](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-registry-000?logo=shadcnui&logoColor=white)
+![Motion](https://img.shields.io/badge/Motion-springs-fff100?logo=framer&logoColor=black)
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
+![The motioncn playground](docs/playground.png)
+
+</div>
+
+## Why motioncn?
+
+shadcn gives you great, ownable building blocks. motioncn adds the **feel**: springs, gestures, layout transitions and small delights. Every component is still plain shadcn underneath:
+
+- 🧱 **Built on stock shadcn**: each component composes `components/ui`, so your theme and tokens just work.
+- 🎞️ **One animation runtime**: [Motion](https://motion.dev) (`motion/react`), and every component respects reduced motion.
+- 🎨 **Theme‑proof**: preview in 8 shadcn themes, light and dark, or paste your own theme CSS from ui.shadcn.com/themes or tweakcn.
+- ♿ **Accessible by default**: a built‑in hover inspector checks contrast, target size, names and keyboard access. 0 failures across all themes.
+- 🔀 **Every state, visible**: toggle Enabled, Hover and Disabled on any frame to see how each animation behaves.
+- 📦 **Copy or install**: view the source in the code panel, or `npx shadcn add` straight from the registry.
+
+## A taste
+
+| Mood Slider | Weather | Swipe Cards | Voice ↔ Text |
+| :---: | :---: | :---: | :---: |
+| ![Mood slider](docs/mood-slider.png) | ![Weather widget](docs/weather-widget.png) | ![Swipe cards](docs/swipe-cards.png) | ![Voice input](docs/voice-input.png) |
+
+> These are stills. Run the playground to feel the springs. 😉
+
+## Quick start
 
 ```bash
+git clone https://github.com/elenichas/motioncn.git
+cd motioncn
 npm install
 npm run dev              # http://localhost:5173
-npm run build            # registry + typecheck + static site in dist/
-npm test                 # registry verify + visual regression tests
 ```
+
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Starts the playground |
+| `npm run build` | Generates the registry, typechecks and builds the static site into `dist/` |
+| `npm test` | Verifies each registry item installs on its own, then runs 228 visual regression screenshots |
 
 ## Install components
 
