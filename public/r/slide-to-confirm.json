@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slide-to-confirm",
+  "title": "Slide to Confirm",
+  "description": "\"Slide to pay\" control: drag the thumb to the end (or press Enter on it) to confirm. Let go early and it springs back; reach the end and it morphs into a success state. Built on shadcn Card and Button. Hover: the thumb nudges forward and the arrows pulse. Disabled: locked and dimmed.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "button",
+    "utils",
+    "https://motioncn.example.com/r/text-shimmer.json",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/slide-to-confirm.tsx",
+      "content": "import { useRef, useState } from \"react\"\nimport { animate, AnimatePresence, motion, useMotionValue, useReducedMotionConfig, useTransform } from \"motion/react\"\nimport { ChevronsRight, Check, Lock } from \"lucide-react\"\nimport { Card } from \"@/components/ui/card\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\nimport { Shimmer } from \"./text-shimmer\"\nimport { useDemoState, useHover } from \"./demo-state\"\n\nconst TRACK = 272\nconst THUMB = 48\nconst MAX = TRACK - THUMB - 8\n\n/**\n * \"Slide to pay\" control: drag the thumb to the end (or press Enter on it) to confirm.\n * Let go early and it springs back; reach the end and it morphs into a success state.\n * Built on shadcn Card and Button. Hover: the thumb nudges forward and the arrows pulse.\n * Disabled: locked and dimmed.\n */\nexport function SlideToConfirm() {\n  const { disabled } = useDemoState()\n  const { hovered, hoverProps } = useHover()\n  const reduced = useReducedMotionConfig()\n  const [done, setDone] = useState(false)\n  const x = useMotionValue(0)\n  const fill = useTransform(x, [0, MAX], [THUMB + 8, TRACK])\n  const labelOpacity = useTransform(x, [0, MAX * 0.6], [1, 0])\n  const constraints = useRef<HTMLDivElement>(null)\n\n  const confirm = () => {\n    animate(x, MAX, { type: \"spring\", stiffness: 400, damping: 30 })\n    setDone(true)\n  }\n  const reset = () => {\n    setDone(false)\n    animate(x, 0, { type: \"spring\", stiffness: 300, damping: 25 })\n  }\n\n  return (\n    <Card className={cn(\"w-80 items-center gap-4 p-5\", disabled && \"opacity-60\")} {...hoverProps}>\n      <div className=\"w-full\">\n        <p className=\"text-muted-foreground text-xs\">Total</p>\n        <p className=\"text-2xl font-semibold\">£24.00</p>\n      </div>\n\n      <div ref={constraints} className=\"bg-muted relative h-14 overflow-hidden rounded-full border\" style={{ width: TRACK }}>\n        <motion.div className=\"bg-primary/15 absolute inset-y-0 left-0 rounded-full\" style={{ width: fill }} />\n        <motion.span className=\"absolute inset-0 flex items-center justify-center pl-10 text-sm font-medium\" style={{ opacity: labelOpacity }} aria-hidden>\n          {disabled ? (\n            <span className=\"text-muted-foreground flex items-center gap-1.5\">\n              <Lock className=\"size-3.5\" /> Locked\n            </span>\n          ) : (\n            <Shimmer active={!reduced && !done}>Slide to pay</Shimmer>\n          )}\n        </motion.span>\n        <AnimatePresence>\n          {done && (\n            <motion.span className=\"text-primary absolute inset-0 flex items-center justify-center pr-12 text-sm font-semibold\" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} role=\"status\">\n              Paid\n            </motion.span>\n          )}\n        </AnimatePresence>\n        <motion.button\n          className=\"bg-primary text-primary-foreground focus-visible:ring-ring/50 absolute top-1 left-1 flex size-12 touch-none items-center justify-center rounded-full shadow-md outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed\"\n          style={{ x }}\n          drag={disabled || done ? false : \"x\"}\n          dragConstraints={{ left: 0, right: MAX }}\n          dragElastic={0.05}\n          dragMomentum={false}\n          onDragEnd={() => (x.get() > MAX * 0.85 ? confirm() : animate(x, 0, { type: \"spring\", stiffness: 500, damping: 30 }))}\n          onKeyDown={(e) => {\n            if ((e.key === \"Enter\" || e.key === \" \") && !done) (e.preventDefault(), confirm())\n          }}\n          animate={!done && hovered ? { x: [0, 14, 0] } : undefined}\n          transition={{ duration: 1, repeat: hovered && !done ? Infinity : 0, repeatDelay: 0.4 }}\n          disabled={disabled}\n          aria-label={done ? \"Payment confirmed\" : \"Slide or press Enter to pay £24\"}\n          data-hover-target\n        >\n          <AnimatePresence mode=\"popLayout\" initial={false}>\n            <motion.span key={String(done)} className=\"flex\" initial={{ scale: 0.3, rotate: -90 }} animate={{ scale: 1, rotate: 0 }}>\n              {done ? (\n                <Check className=\"size-5\" />\n              ) : (\n                <motion.span className=\"flex\" animate={hovered ? { x: [0, 3, 0] } : {}} transition={{ duration: 0.6, repeat: hovered ? Infinity : 0 }}>\n                  <ChevronsRight className=\"size-5\" />\n                </motion.span>\n              )}\n            </motion.span>\n          </AnimatePresence>\n        </motion.button>\n      </div>\n\n      <div className=\"h-8\">\n        {done && (\n          <Button variant=\"ghost\" size=\"sm\" onClick={reset}>\n            Reset demo\n          </Button>\n        )}\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Swipe & gesture"
+  ],
+  "type": "registry:component"
+}

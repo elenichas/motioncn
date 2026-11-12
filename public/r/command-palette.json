@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-palette",
+  "title": "Command Palette",
+  "description": "shadcn Command (cmdk) with a highlight that glides between results, results that fade and reflow as you type, and an animated empty state. Arrow keys and Enter work as usual. Hover: a result lights up under the pointer. Disabled: search and results disabled.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "command",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/command-palette.tsx",
+      "content": "import { useId, useState } from \"react\"\nimport { AnimatePresence, LayoutGroup, motion } from \"motion/react\"\nimport { Calculator, Calendar, CreditCard, Palette, Settings, Smile, User } from \"lucide-react\"\nimport { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandShortcut } from \"@/components/ui/command\"\nimport { useDemoState } from \"./demo-state\"\n\nconst GROUPS = [\n  { heading: \"Suggestions\", items: [{ icon: Calendar, label: \"Calendar\" }, { icon: Smile, label: \"Search emoji\" }, { icon: Calculator, label: \"Calculator\" }] },\n  { heading: \"Settings\", items: [{ icon: User, label: \"Profile\", k: \"⌘P\" }, { icon: CreditCard, label: \"Billing\", k: \"⌘B\" }, { icon: Palette, label: \"Theme\", k: \"⌘T\" }, { icon: Settings, label: \"Settings\", k: \"⌘S\" }] },\n]\n\n/**\n * shadcn Command (cmdk) with a highlight that glides between results, results that\n * fade and reflow as you type, and an animated empty state. Arrow keys and Enter work as usual.\n * Hover: a result lights up under the pointer. Disabled: search and results disabled.\n */\nexport function CommandPalette() {\n  const id = useId()\n  const { disabled, forceHover } = useDemoState()\n  const [value, setValue] = useState(forceHover ? \"billing\" : \"calendar\")\n  const [query, setQuery] = useState(\"\")\n  const [picked, setPicked] = useState<string | null>(null)\n\n  return (\n    <div className=\"flex w-80 flex-col gap-2\">\n      <Command value={value} onValueChange={setValue} className=\"rounded-xl border shadow-md\" loop>\n        <CommandInput placeholder=\"Type a command or search…\" value={query} onValueChange={setQuery} disabled={disabled} aria-label=\"Search commands\" />\n        <CommandList className=\"max-h-64\">\n          <CommandEmpty>\n            <motion.span className=\"text-muted-foreground inline-block\" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}>\n              No results for “{query}”\n            </motion.span>\n          </CommandEmpty>\n          <LayoutGroup id={id}>\n            {GROUPS.map((g) => (\n              <CommandGroup key={g.heading} heading={g.heading}>\n                {g.items.map((it) => {\n                  const v = it.label.toLowerCase()\n                  return (\n                    <CommandItem key={it.label} value={v} disabled={disabled} onSelect={() => setPicked(it.label)} className=\"relative data-[selected=true]:bg-transparent\">\n                      {value === v && !disabled && <motion.span layoutId=\"cmd-highlight\" className=\"bg-accent absolute inset-0 rounded-sm\" transition={{ type: \"spring\", stiffness: 500, damping: 35 }} />}\n                      <it.icon className=\"relative\" />\n                      <span className=\"relative\">{it.label}</span>\n                      {\"k\" in it && <CommandShortcut className=\"relative\">{it.k}</CommandShortcut>}\n                    </CommandItem>\n                  )\n                })}\n              </CommandGroup>\n            ))}\n          </LayoutGroup>\n        </CommandList>\n      </Command>\n      <div className=\"h-5 text-center text-xs\" aria-live=\"polite\">\n        <AnimatePresence mode=\"popLayout\">\n          {picked && (\n            <motion.span key={picked} className=\"text-muted-foreground inline-block\" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>\n              Opened {picked}\n            </motion.span>\n          )}\n        </AnimatePresence>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Core controls"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notebook-flip",
+  "title": "Notebook Page Flip",
+  "description": "Notebook with pages that turn in 3D around the spine, on lined paper drawn from theme tokens. Built on shadcn Card and Button. Hover: the page corner curls up as a hint. Disabled: page buttons disabled.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "button",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/notebook-flip.tsx",
+      "content": "import { useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\nimport { ChevronLeft, ChevronRight } from \"lucide-react\"\nimport { Card } from \"@/components/ui/card\"\nimport { Button } from \"@/components/ui/button\"\nimport { useDemoState, useHover } from \"./demo-state\"\n\nconst PAGES = [\n  { title: \"Monday\", lines: [\"Sketch the mood slider\", \"Try a softer spring\", \"Ask Maya about tokens\"] },\n  { title: \"Tuesday\", lines: [\"Swipe cards: add undo\", \"Fix tab contrast\", \"Coffee ☕\"] },\n  { title: \"Wednesday\", lines: [\"Ship the registry\", \"Write the README\", \"Celebrate 🎉\"] },\n]\n\n/**\n * Notebook with pages that turn in 3D around the spine, on lined paper drawn from theme tokens.\n * Built on shadcn Card and Button. Hover: the page corner curls up as a hint.\n * Disabled: page buttons disabled.\n */\nexport function NotebookFlip() {\n  const { disabled } = useDemoState()\n  const { hovered, hoverProps } = useHover()\n  const [[page, dir], setPage] = useState<[number, number]>([0, 1])\n  const go = (d: number) => setPage(([p]) => [Math.max(0, Math.min(PAGES.length - 1, p + d)), d])\n  const p = PAGES[page]\n\n  return (\n    <div className=\"flex flex-col items-center gap-4\" {...hoverProps}>\n      <div className=\"relative\" style={{ perspective: 1200 }}>\n        <Card className=\"relative h-60 w-56 gap-0 overflow-visible rounded-l-sm rounded-r-xl p-0 shadow-md\">\n          {/* spine */}\n          <span className=\"bg-primary absolute inset-y-0 left-0 w-3 rounded-l-sm\" aria-hidden />\n          <AnimatePresence mode=\"popLayout\" initial={false} custom={dir}>\n            <motion.div\n              key={page}\n              custom={dir}\n              className=\"bg-card absolute inset-y-0 right-0 left-3 rounded-r-xl px-4 py-3\"\n              style={{\n                transformOrigin: \"left center\",\n                backfaceVisibility: \"hidden\",\n                backgroundImage: \"repeating-linear-gradient(to bottom, transparent 0 27px, var(--border) 27px 28px)\",\n                backgroundPosition: \"0 40px\",\n              }}\n              variants={{\n                enter: (d: number) => ({ rotateY: d > 0 ? 70 : -70, opacity: 0 }),\n                center: { rotateY: 0, opacity: 1 },\n                exit: (d: number) => ({ rotateY: d > 0 ? -110 : 110, opacity: 0, zIndex: 2 }),\n              }}\n              initial=\"enter\"\n              animate=\"center\"\n              exit=\"exit\"\n              transition={{ type: \"spring\", stiffness: 120, damping: 18 }}\n            >\n              <p className=\"mb-2 text-sm font-semibold\">{p.title}</p>\n              <ul className=\"space-y-[10px] text-sm leading-[18px]\">\n                {p.lines.map((l, i) => (\n                  <motion.li key={l} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + i * 0.08 }}>\n                    {l}\n                  </motion.li>\n                ))}\n              </ul>\n              <span className=\"text-muted-foreground absolute bottom-2 left-4 text-xs tabular-nums\">\n                {page + 1} / {PAGES.length}\n              </span>\n            </motion.div>\n          </AnimatePresence>\n          {/* corner curl hint */}\n          <motion.span\n            className=\"from-muted to-background absolute right-0 bottom-0 z-10 rounded-tl-lg rounded-br-xl bg-gradient-to-tl shadow-sm\"\n            initial={false}\n            animate={{ width: hovered && page < PAGES.length - 1 ? 28 : 0, height: hovered && page < PAGES.length - 1 ? 28 : 0 }}\n            transition={{ type: \"spring\", stiffness: 300, damping: 18 }}\n            aria-hidden\n          />\n        </Card>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <Button variant=\"outline\" size=\"icon\" onClick={() => go(-1)} disabled={disabled || page === 0} aria-label=\"Previous page\">\n          <ChevronLeft />\n        </Button>\n        <Button variant=\"outline\" size=\"icon\" onClick={() => go(1)} disabled={disabled || page === PAGES.length - 1} aria-label=\"Next page\">\n          <ChevronRight />\n        </Button>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Skeuomorphic"
+  ],
+  "type": "registry:component"
+}

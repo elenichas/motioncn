@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "morph-button",
+  "title": "Morph Button",
+  "description": "shadcn <Button> that morphs idle → loading → success. Hover: lifts, glows and the paper plane leans forward. Disabled: native disabled, no motion.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "utils",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/morph-button.tsx",
+      "content": "import { useEffect, useRef, useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\nimport { Check, LoaderCircle, Send } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\nimport { useDemoState, useHover } from \"./demo-state\"\n\ntype State = \"idle\" | \"loading\" | \"success\"\n\n/**\n * shadcn <Button> that morphs idle → loading → success.\n * Hover: lifts, glows and the paper plane leans forward. Disabled: native disabled, no motion.\n */\nexport function MorphButton() {\n  const [state, setState] = useState<State>(\"idle\")\n  const timers = useRef<number[]>([])\n  const { disabled } = useDemoState()\n  const { hovered, hoverProps } = useHover()\n  useEffect(() => () => timers.current.forEach(clearTimeout), [])\n\n  const run = () => {\n    if (state !== \"idle\") return\n    setState(\"loading\")\n    timers.current.push(window.setTimeout(() => setState(\"success\"), 1500))\n    timers.current.push(window.setTimeout(() => setState(\"idle\"), 3100))\n  }\n\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <Button asChild size=\"lg\" className={cn(\"overflow-hidden\", state === \"success\" && \"bg-emerald-600 text-white hover:bg-emerald-600\")}>\n        <motion.button\n          layout\n          data-hover-target\n          disabled={disabled}\n          onClick={run}\n          {...hoverProps}\n          whileTap={disabled ? undefined : { scale: 0.94 }}\n          animate={{\n            y: hovered ? -2 : 0,\n            boxShadow: hovered ? \"0 10px 24px -8px color-mix(in oklab, var(--primary) 70%, transparent)\" : \"0 0 0 0 transparent\",\n          }}\n          transition={{ type: \"spring\", bounce: 0.35, duration: 0.5 }}\n          style={{ borderRadius: 999 }}\n          aria-live=\"polite\"\n        >\n          <AnimatePresence mode=\"popLayout\" initial={false}>\n            <motion.span\n              key={state}\n              className=\"flex items-center gap-2\"\n              initial={{ opacity: 0, y: -18, filter: \"blur(4px)\" }}\n              animate={{ opacity: 1, y: 0, filter: \"blur(0px)\" }}\n              exit={{ opacity: 0, y: 18, filter: \"blur(4px)\" }}\n              transition={{ type: \"spring\", bounce: 0.3, duration: 0.45 }}\n            >\n              {state === \"idle\" && (\n                <>\n                  <motion.span className=\"flex\" animate={hovered ? { x: 3, y: -2, rotate: -12 } : { x: 0, y: 0, rotate: 0 }} transition={{ type: \"spring\", stiffness: 400, damping: 15 }}>\n                    <Send />\n                  </motion.span>\n                  Send message\n                </>\n              )}\n              {state === \"loading\" && <LoaderCircle className=\"animate-spin\" aria-label=\"Sending\" />}\n              {state === \"success\" && (\n                <>\n                  <motion.span initial={{ scale: 0, rotate: -90 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: \"spring\", bounce: 0.6 }}>\n                    <Check />\n                  </motion.span>\n                  Sent!\n                </>\n              )}\n            </motion.span>\n          </AnimatePresence>\n        </motion.button>\n      </Button>\n      <p className=\"text-muted-foreground text-xs\">{disabled ? \"Disabled\" : \"Click to send\"}</p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Core controls"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,1082 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "motioncn",
+  "homepage": "https://motioncn.example.com",
+  "items": [
+    {
+      "name": "agent-task",
+      "type": "registry:component",
+      "title": "Agent Task",
+      "description": "Extends shadcn's Task + Sources patterns (AI Elements): an agent's steps go pending → running → done with a drawn tick, steps expand to show what happened, and the cited sources stack fans out. Built on shadcn Card and Button. Hover: rows highlight and the sources fan out. Disabled: the run is frozen and controls disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/agent-task.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "AI"
+      ]
+    },
+    {
+      "name": "animated-accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "shadcn Accordion with a springy chevron, a highlight that glides to the open item, and answer lines that cascade in. Keeps Radix keyboard behaviour and the stock height animation. Hover: the trigger nudges right and its chevron dips. Disabled: items can't be toggled.",
+      "dependencies": [
+        "motion",
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "accordion",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/animated-accordion.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Core controls"
+      ]
+    },
+    {
+      "name": "bookshelf",
+      "type": "registry:component",
+      "title": "Bookshelf",
+      "description": "Soft-skeuomorphic bookshelf in shadcn tokens: spines are buttons; the opened page is a shadcn Card with shadcn Buttons. Hover: the spine lifts and tilts out of the shelf. Disabled: books can't be pulled out, shelf dims.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "https://motioncn.example.com/r/demo-state.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/bookshelf.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Skeuomorphic"
+      ]
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:component",
+      "title": "Command Palette",
+      "description": "shadcn Command (cmdk) with a highlight that glides between results, results that fade and reflow as you type, and an animated empty state. Arrow keys and Enter work as usual. Hover: a result lights up under the pointer. Disabled: search and results disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "command",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/command-palette.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Core controls"
+      ]
+    },
+    {
+      "name": "day-night-switch",
+      "type": "registry:component",
+      "title": "Day / Night Switch",
+      "description": "shadcn Switch (same Radix primitive, extended markup) as a day ↔ night toggle. Hover: the thumb peeks towards the other side and the sun glows. Disabled: dimmed, frozen.",
+      "dependencies": [
+        "motion",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/day-night-switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Skeuomorphic"
+      ]
+    },
+    {
+      "name": "demo-state",
+      "type": "registry:component",
+      "title": "Demo state",
+      "description": "Hover/disabled showcase state used by motioncn components. Safe to keep: outside the playground every component is simply enabled.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/motion/demo-state.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dock",
+      "type": "registry:component",
+      "title": "Dock",
+      "description": "macOS-style dock of shadcn Buttons. Hover: icons magnify by cursor distance and show a label. Disabled: no magnify, dimmed.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/dock.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Fun widgets"
+      ]
+    },
+    {
+      "name": "donut-breakdown",
+      "type": "registry:component",
+      "title": "Donut Breakdown",
+      "description": "Donut chart on a shadcn Card with Tabs: segments draw in turn, switching data re-draws them, and hovering a segment or legend row thickens it and rolls the centre number to its value. Hover: the first segment pops out. Disabled: tabs disabled and the chart greys out.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "card",
+        "tabs",
+        "utils",
+        "https://motioncn.example.com/r/slot-number.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/donut-breakdown.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Data & charts"
+      ]
+    },
+    {
+      "name": "feature-bento",
+      "type": "registry:component",
+      "title": "Feature Bento",
+      "description": "Landing-page feature bento of shadcn Cards. Each tile has its own micro-animation that plays on hover: springy bars, fanning theme swatches, a tick that draws itself, a command that types. Hover: the tile lifts and its animation plays. Disabled: tiles are static and dimmed.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "utils",
+        "https://motioncn.example.com/r/themes.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/feature-bento.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Landing page"
+      ]
+    },
+    {
+      "name": "filter-chart",
+      "type": "registry:component",
+      "title": "Filter Chart",
+      "description": "Bar chart in a shadcn Card, filtered with shadcn Tabs and Buttons; bars spring and re-order. Hover: the bar highlights, others dim, and a tooltip rises. Disabled: filters disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "tabs",
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/slot-number.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/filter-chart.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Data & charts"
+      ]
+    },
+    {
+      "name": "image-generation",
+      "type": "registry:component",
+      "title": "Image Generation",
+      "description": "Image generation card for the AI category: a blurred noise field slowly resolves into the result with a progress ring, then variations pop in below. The art is illustrative: drawn from the prompt with theme tokens, no model involved. Built on shadcn Card, Input and Button. Hover: the image tilts and its actions slide up. Disabled: prompt and buttons disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "input",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/image-generation.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "AI"
+      ]
+    },
+    {
+      "name": "light-switch",
+      "type": "registry:component",
+      "title": "Retro Light Switch",
+      "description": "Retro wall light switch (shadcn Switch's Radix primitive, flat token styling): the lever flips with a springy click, the bulb above warms up and casts a soft glow. Hover: the lever wiggles as if about to flip. Disabled: dimmed and it won't flip.",
+      "dependencies": [
+        "motion",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/light-switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Skeuomorphic"
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "title": "Marquee",
+      "description": "Infinite logo / tech marquee in two directions with faded edges (Magic UI Marquee / Motion Primitives InfiniteSlider). Built on shadcn Badge. Hover: the belt eases down to a crawl so items can be read. Disabled or reduced motion: paused.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/marquee.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Landing page"
+      ]
+    },
+    {
+      "name": "mood-slider",
+      "type": "registry:component",
+      "title": "Mood Slider",
+      "description": "shadcn <Slider> driving a face that morphs with the value. Hover: the face perks up and bobs. Disabled: slider disabled, face greys out.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "slider",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/mood-slider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Sliders"
+      ]
+    },
+    {
+      "name": "morph-button",
+      "type": "registry:component",
+      "title": "Morph Button",
+      "description": "shadcn <Button> that morphs idle → loading → success. Hover: lifts, glows and the paper plane leans forward. Disabled: native disabled, no motion.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/morph-button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Core controls"
+      ]
+    },
+    {
+      "name": "music-player",
+      "type": "registry:component",
+      "title": "Music Player",
+      "description": "Mini player from shadcn Card, Slider and Buttons: vinyl spins, equalizer dances, tracks slide. Hover: artwork grows and the record peeks out. Disabled: controls and seek bar disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "slider",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/music-player.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Fun widgets"
+      ]
+    },
+    {
+      "name": "notebook-flip",
+      "type": "registry:component",
+      "title": "Notebook Page Flip",
+      "description": "Notebook with pages that turn in 3D around the spine, on lined paper drawn from theme tokens. Built on shadcn Card and Button. Hover: the page corner curls up as a hint. Disabled: page buttons disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/notebook-flip.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Skeuomorphic"
+      ]
+    },
+    {
+      "name": "notification-stack",
+      "type": "registry:component",
+      "title": "Notification Stack",
+      "description": "Sonner-style stack of shadcn Cards: swipe to dismiss, new ones drop in. Hover: the stack fans out. Disabled: stays collapsed, no swipe, dimmed.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/notification-stack.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Swipe & gesture"
+      ]
+    },
+    {
+      "name": "otp-input",
+      "type": "registry:component",
+      "title": "OTP Input",
+      "description": "shadcn <InputOTP> with animated slots: wrong code shakes, right code celebrates. Hover: slots ripple in a wave. Disabled: input disabled and dimmed.",
+      "dependencies": [
+        "motion",
+        "input-otp"
+      ],
+      "registryDependencies": [
+        "input-otp",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/otp-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Core controls"
+      ]
+    },
+    {
+      "name": "pomodoro-timer",
+      "type": "registry:component",
+      "title": "Pomodoro Timer",
+      "description": "Pomodoro timer on a shadcn Card with Tabs and Buttons: a ring drains as time passes, digits roll, Play morphs into Pause, and a tomato squishes and sparkles when time's up. Runs 60× faster in the demo. Hover: the ring glows and the tomato wobbles. Disabled: controls disabled, ring greyed.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "tabs",
+        "utils",
+        "https://motioncn.example.com/r/slot-number.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/pomodoro-timer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Fun widgets"
+      ]
+    },
+    {
+      "name": "popover-form",
+      "type": "registry:component",
+      "title": "Popover Form",
+      "description": "A button that morphs into a feedback form and back (Cult UI's Popover Form idea). Built on shadcn Button and Textarea. Size and radius animate explicitly (not layoutId), so the morph stays correct at any canvas zoom. Hover: the button lifts and the icon wiggles. Disabled: button disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "textarea",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/popover-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Core controls"
+      ]
+    },
+    {
+      "name": "price-range",
+      "type": "registry:component",
+      "title": "Price Range",
+      "description": "Two-thumb shadcn <Slider> over a histogram: bars inside the range light up, the result count and prices roll. Hover: bars ripple in a wave and thumbs show their ring. Disabled: slider disabled, histogram greyed.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "slider",
+        "card",
+        "utils",
+        "https://motioncn.example.com/r/slot-number.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/price-range.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Sliders"
+      ]
+    },
+    {
+      "name": "prompt-input",
+      "type": "registry:component",
+      "title": "Prompt Input",
+      "description": "Extends shadcn's Prompt Input + Suggestion patterns (AI Elements): suggestion chips cascade in and type themselves into the box, the model picker springs open, and the submit button morphs into a stop button with a progress ring. Built on shadcn Textarea and Button. Hover: the input glows and the send button perks up. Disabled: input and actions disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "textarea",
+        "utils",
+        "https://motioncn.example.com/r/text-shimmer.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/prompt-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "AI"
+      ]
+    },
+    {
+      "name": "reaction-button",
+      "type": "registry:component",
+      "title": "Social Post",
+      "description": "Social post on a shadcn Card with a full action bar of shadcn Buttons: follow, like (particle burst), comment (inline composer), repost, bookmark, share (copy link). Hover: the heart beats and blushes. Disabled: every action disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input",
+        "card",
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/slot-number.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/reaction-button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Fun widgets"
+      ]
+    },
+    {
+      "name": "reasoning",
+      "type": "registry:component",
+      "title": "Reasoning",
+      "description": "Extends shadcn's Reasoning pattern (AI Elements): the thinking panel opens while the model thinks with a shimmering title and streaming thoughts, auto-collapses to \"Thought for 2s\", then the answer streams and message actions pop in. Built on shadcn Card and Button. Hover: shimmer speeds up, chevron nudges. Disabled: static answer, actions disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/text-shimmer.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/reasoning.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "AI"
+      ]
+    },
+    {
+      "name": "rotary-knob",
+      "type": "registry:component",
+      "title": "Volume Knob",
+      "description": "Hi-fi volume knob synced to a shadcn <Slider> (the accessible control) and a mute Button. Drag the knob up/down, scroll on it, or use the slider. Ticks light up around the dial. Hover: the knob lifts, glows and the lit ticks shimmer. Disabled: no drag, dial greys out.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "slider",
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/rotary-knob.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Sliders"
+      ]
+    },
+    {
+      "name": "slide-to-confirm",
+      "type": "registry:component",
+      "title": "Slide to Confirm",
+      "description": "\"Slide to pay\" control: drag the thumb to the end (or press Enter on it) to confirm. Let go early and it springs back; reach the end and it morphs into a success state. Built on shadcn Card and Button. Hover: the thumb nudges forward and the arrows pulse. Disabled: locked and dimmed.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/text-shimmer.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/slide-to-confirm.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Swipe & gesture"
+      ]
+    },
+    {
+      "name": "sliding-tabs",
+      "type": "registry:component",
+      "title": "Sliding Tabs",
+      "description": "shadcn <Tabs> with a shared-layout pill and direction-aware panels. Hover: a soft highlight glides to the hovered trigger. Disabled: triggers and fields disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tabs",
+        "input",
+        "button",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/sliding-tabs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Core controls"
+      ]
+    },
+    {
+      "name": "slot-number",
+      "type": "registry:component",
+      "title": "Slot Number",
+      "description": "Rolling slot-machine digits used by several motioncn components.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/slot-number.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:component",
+      "title": "Spotlight Card",
+      "description": "Pricing card with a cursor-following spotlight and glowing border (the Magic UI \"Magic Card\" / Aceternity \"Spotlight\" idea, in shadcn tokens). Built on shadcn Card, Badge, Switch and Button. Hover: the spotlight follows the pointer (or drifts by itself in the Hover state). Disabled: no light, controls disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "badge",
+        "switch",
+        "utils",
+        "https://motioncn.example.com/r/slot-number.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/spotlight-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Landing page"
+      ]
+    },
+    {
+      "name": "star-rating",
+      "type": "registry:component",
+      "title": "Star Rating",
+      "description": "Star rating built from shadcn ghost icon Buttons. Hover: stars preview-fill in a spring wave with the matching label. Disabled: buttons disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/star-rating.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Fun widgets"
+      ]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:component",
+      "title": "Stat Card",
+      "description": "shadcn Card + Badge with a rolling number ticker and a sparkline that redraws. Hover: card lifts, the latest point pulses and shows its value. Disabled: refresh off, chart muted.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "button",
+        "https://motioncn.example.com/r/slot-number.json",
+        "https://motioncn.example.com/r/demo-state.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/stat-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Data & charts"
+      ]
+    },
+    {
+      "name": "swipe-cards",
+      "type": "registry:component",
+      "title": "Swipe Cards",
+      "description": "Tinder-style deck of shadcn Cards with shadcn Buttons; cards fly out by direction. Hover: the top card lifts and tilts, inviting a drag. Disabled: no drag, buttons disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json",
+        "https://motioncn.example.com/r/themes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/swipe-cards.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Swipe & gesture"
+      ]
+    },
+    {
+      "name": "swipe-to-delete",
+      "type": "registry:component",
+      "title": "Swipe to Delete",
+      "description": "Inbox rows you swipe right to archive or left to delete, with the action revealed underneath, rows collapsing out and an Undo toast. Buttons appear on hover/focus as a keyboard alternative. Built on shadcn Button. Hover: the first row peeks left to hint at the gesture. Disabled: no swiping, actions disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/swipe-to-delete.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Swipe & gesture"
+      ]
+    },
+    {
+      "name": "testimonial-stack",
+      "type": "registry:component",
+      "title": "Testimonial Stack",
+      "description": "Testimonial stack for landing pages: the top card flips to the back every few seconds, the stack re-settles with springs, and dots track the position. Built on shadcn Card and Button. Ships with placeholder copy. Hover: auto-play pauses and the stack fans out. Disabled (or reduced motion): auto-play stops; disabled also disables the arrows.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/testimonial-stack.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Landing page"
+      ]
+    },
+    {
+      "name": "text-shimmer",
+      "type": "registry:component",
+      "title": "Shimmer",
+      "description": "Accessible text shimmer: a highlight sweeps over an aria-hidden copy, so the real text keeps its contrast.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/motion/text-shimmer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "css": {
+        ".shimmer-mask": {
+          "mask-image": "linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%)",
+          "mask-size": "40% 100%",
+          "mask-repeat": "no-repeat",
+          "animation": "shimmer var(--shimmer-duration, 1.6s) linear infinite"
+        },
+        "@keyframes shimmer": {
+          "from": {
+            "mask-position": "-60% 0"
+          },
+          "to": {
+            "mask-position": "160% 0"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".shimmer-mask": {
+            "animation": "none",
+            "opacity": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "tilt-ticket",
+      "type": "registry:component",
+      "title": "Tilt Ticket",
+      "description": "3D tilting event ticket (Aceternity's 3D Card idea, flattened into shadcn tokens). Built on shadcn Card and Button; layers sit at different depths for parallax. Hover: the ticket tilts toward the pointer with a moving glare. Disabled: flat and dimmed.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/tilt-ticket.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Skeuomorphic"
+      ]
+    },
+    {
+      "name": "timeline-scrubber",
+      "type": "registry:component",
+      "title": "Timeline Scrubber",
+      "description": "Video timeline: a shadcn Slider over a filmstrip with chapter markers. Hovering the track shows a floating preview with the time and chapter; the playhead glides while playing. Built on shadcn Slider, Button and Card. Hover: the preview appears and the active chapter lifts. Disabled: slider and play disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "slider",
+        "button",
+        "card",
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/timeline-scrubber.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Sliders"
+      ]
+    },
+    {
+      "name": "todo-list",
+      "type": "registry:component",
+      "title": "Todo Checklist",
+      "description": "Checklist: ticks draw, text strikes through, rows reorder by drag. Hover: row nudges right and the grip handle wakes up. Disabled: checkboxes and drag off.",
+      "dependencies": [
+        "motion",
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/todo-list.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Swipe & gesture"
+      ]
+    },
+    {
+      "name": "voice-input",
+      "type": "registry:component",
+      "title": "Voice ↔ Text Input",
+      "description": "Whimsical voice ↔ text input for the AI category. Type in a shadcn Input, or tap the mic: the field morphs into a listening blob that bounces to the (simulated) sound, puffs out little notes, transcribes what it heard and drops it back into the field. Built on shadcn Input and Button. Hover: the mini blob on the mic button wakes up and waves. Disabled: the blob falls asleep and controls are disabled.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "https://motioncn.example.com/r/text-shimmer.json",
+        "https://motioncn.example.com/r/demo-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/voice-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "AI"
+      ]
+    },
+    {
+      "name": "weather-widget",
+      "type": "registry:component",
+      "title": "Weather Widget",
+      "description": "Weather on a shadcn Card, conditions picked with shadcn Tabs. Hover: card lifts, the sky zooms in and \"feels like\" slides in. Disabled: condition tabs off.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "tabs",
+        "https://motioncn.example.com/r/demo-state.json",
+        "utils",
+        "https://motioncn.example.com/r/slot-number.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/motion/weather-widget.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "Fun widgets"
+      ]
+    },
+    {
+      "name": "themes",
+      "type": "registry:lib",
+      "title": "motioncn themes",
+      "description": "shadcn theme tokens (OKLCH) and a themeVars() helper for scoping a theme to one element.",
+      "files": [
+        {
+          "path": "src/lib/themes.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "all",
+      "type": "registry:block",
+      "title": "All motioncn components",
+      "description": "Installs all 38 motioncn components.",
+      "registryDependencies": [
+        "https://motioncn.example.com/r/agent-task.json",
+        "https://motioncn.example.com/r/animated-accordion.json",
+        "https://motioncn.example.com/r/bookshelf.json",
+        "https://motioncn.example.com/r/command-palette.json",
+        "https://motioncn.example.com/r/day-night-switch.json",
+        "https://motioncn.example.com/r/dock.json",
+        "https://motioncn.example.com/r/donut-breakdown.json",
+        "https://motioncn.example.com/r/feature-bento.json",
+        "https://motioncn.example.com/r/filter-chart.json",
+        "https://motioncn.example.com/r/image-generation.json",
+        "https://motioncn.example.com/r/light-switch.json",
+        "https://motioncn.example.com/r/marquee.json",
+        "https://motioncn.example.com/r/mood-slider.json",
+        "https://motioncn.example.com/r/morph-button.json",
+        "https://motioncn.example.com/r/music-player.json",
+        "https://motioncn.example.com/r/notebook-flip.json",
+        "https://motioncn.example.com/r/notification-stack.json",
+        "https://motioncn.example.com/r/otp-input.json",
+        "https://motioncn.example.com/r/pomodoro-timer.json",
+        "https://motioncn.example.com/r/popover-form.json",
+        "https://motioncn.example.com/r/price-range.json",
+        "https://motioncn.example.com/r/prompt-input.json",
+        "https://motioncn.example.com/r/reaction-button.json",
+        "https://motioncn.example.com/r/reasoning.json",
+        "https://motioncn.example.com/r/rotary-knob.json",
+        "https://motioncn.example.com/r/slide-to-confirm.json",
+        "https://motioncn.example.com/r/sliding-tabs.json",
+        "https://motioncn.example.com/r/spotlight-card.json",
+        "https://motioncn.example.com/r/star-rating.json",
+        "https://motioncn.example.com/r/stat-card.json",
+        "https://motioncn.example.com/r/swipe-cards.json",
+        "https://motioncn.example.com/r/swipe-to-delete.json",
+        "https://motioncn.example.com/r/testimonial-stack.json",
+        "https://motioncn.example.com/r/tilt-ticket.json",
+        "https://motioncn.example.com/r/timeline-scrubber.json",
+        "https://motioncn.example.com/r/todo-list.json",
+        "https://motioncn.example.com/r/voice-input.json",
+        "https://motioncn.example.com/r/weather-widget.json"
+      ],
+      "files": []
+    }
+  ]
+}

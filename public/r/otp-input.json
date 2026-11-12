@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "otp-input",
+  "title": "OTP Input",
+  "description": "shadcn <InputOTP> with animated slots: wrong code shakes, right code celebrates. Hover: slots ripple in a wave. Disabled: input disabled and dimmed.",
+  "dependencies": [
+    "motion",
+    "input-otp"
+  ],
+  "registryDependencies": [
+    "input-otp",
+    "utils",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/otp-input.tsx",
+      "content": "import { useContext, useRef, useState } from \"react\"\nimport { AnimatePresence, motion, useAnimationControls } from \"motion/react\"\nimport { OTPInputContext, REGEXP_ONLY_DIGITS } from \"input-otp\"\nimport { InputOTP, InputOTPGroup } from \"@/components/ui/input-otp\"\nimport { cn } from \"@/lib/utils\"\nimport { useDemoState, useHover } from \"./demo-state\"\n\nconst LENGTH = 4\nconst CODE = \"1234\"\ntype Status = \"idle\" | \"error\" | \"success\"\n\n/** Animated version of shadcn's InputOTPSlot: digits pop, caret blinks, slots wave. */\nfunction AnimatedSlot({ index, status, hovered }: { index: number; status: Status; hovered: boolean }) {\n  const ctx = useContext(OTPInputContext)\n  const { char, hasFakeCaret, isActive } = ctx.slots[index]\n  return (\n    <motion.div\n      className={cn(\n        \"border-input bg-background relative flex size-14 items-center justify-center rounded-lg border-2 text-2xl font-semibold shadow-xs transition-colors\",\n        isActive && status === \"idle\" && \"border-ring ring-ring/40 ring-[3px]\",\n        hovered && !isActive && \"border-ring/50\",\n        status === \"error\" && \"border-destructive text-destructive\",\n        status === \"success\" && \"border-emerald-500 bg-emerald-500/10 text-emerald-600\",\n      )}\n      animate={\n        status === \"success\"\n          ? { y: [0, -10, 0], scale: [1, 1.08, 1] }\n          : hovered\n            ? { y: [0, -4, 0] }\n            : { y: 0, scale: 1 }\n      }\n      transition={{\n        delay: index * 0.07,\n        duration: status === \"success\" ? 0.45 : 1.2,\n        repeat: hovered && status === \"idle\" ? Infinity : 0,\n        repeatDelay: 0.4,\n      }}\n    >\n      <AnimatePresence mode=\"popLayout\">\n        {char && (\n          <motion.span\n            key={char + index}\n            initial={{ scale: 0.3, opacity: 0, y: 8 }}\n            animate={{ scale: 1, opacity: 1, y: 0 }}\n            exit={{ scale: 0.3, opacity: 0 }}\n            transition={{ type: \"spring\", stiffness: 500, damping: 22 }}\n          >\n            {char}\n          </motion.span>\n        )}\n      </AnimatePresence>\n      {hasFakeCaret && <span className=\"animate-caret-blink bg-foreground absolute h-6 w-0.5\" />}\n    </motion.div>\n  )\n}\n\n/**\n * shadcn <InputOTP> with animated slots: wrong code shakes, right code celebrates.\n * Hover: slots ripple in a wave. Disabled: input disabled and dimmed.\n */\nexport function OtpInput() {\n  const [value, setValue] = useState(\"\")\n  const [status, setStatus] = useState<Status>(\"idle\")\n  const { disabled } = useDemoState()\n  const { hovered, hoverProps } = useHover()\n  const controls = useAnimationControls()\n  const timer = useRef<number>(0)\n\n  const onChange = (v: string) => {\n    clearTimeout(timer.current)\n    if (status === \"success\") return\n    setValue(v)\n    setStatus(\"idle\")\n    if (v.length < LENGTH) return\n    if (v === CODE) {\n      setStatus(\"success\")\n      timer.current = window.setTimeout(() => (setValue(\"\"), setStatus(\"idle\")), 2200)\n    } else {\n      setStatus(\"error\")\n      controls.start({ x: [0, -12, 12, -9, 9, -4, 4, 0], transition: { duration: 0.45 } })\n      timer.current = window.setTimeout(() => (setValue(\"\"), setStatus(\"idle\")), 750)\n    }\n  }\n\n  return (\n    <div className=\"flex flex-col items-center gap-4\" {...hoverProps}>\n      <motion.div animate={controls}>\n        <InputOTP maxLength={LENGTH} value={value} onChange={onChange} pattern={REGEXP_ONLY_DIGITS} disabled={disabled} aria-label=\"One-time code\">\n          <InputOTPGroup className=\"gap-2\">\n            {Array.from({ length: LENGTH }, (_, i) => (\n              <AnimatedSlot key={i} index={i} status={status} hovered={hovered && !value} />\n            ))}\n          </InputOTPGroup>\n        </InputOTP>\n      </motion.div>\n      <p className={cn(\"text-xs\", status === \"error\" ? \"text-destructive\" : \"text-muted-foreground\")}>\n        {disabled ? \"Disabled\" : status === \"error\" ? \"Wrong code, try again\" : status === \"success\" ? \"Verified!\" : `Type the code (hint: ${CODE})`}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Core controls"
+  ],
+  "type": "registry:component"
+}

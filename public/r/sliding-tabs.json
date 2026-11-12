@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-tabs",
+  "title": "Sliding Tabs",
+  "description": "shadcn <Tabs> with a shared-layout pill and direction-aware panels. Hover: a soft highlight glides to the hovered trigger. Disabled: triggers and fields disabled.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tabs",
+    "input",
+    "button",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/sliding-tabs.tsx",
+      "content": "import { useId, useState } from \"react\"\nimport { AnimatePresence, LayoutGroup, motion } from \"motion/react\"\nimport { CreditCard, KeyRound, User } from \"lucide-react\"\nimport { Tabs, TabsList, TabsTrigger } from \"@/components/ui/tabs\"\nimport { Input } from \"@/components/ui/input\"\nimport { Button } from \"@/components/ui/button\"\nimport { useDemoState } from \"./demo-state\"\n\nconst tabs = [\n  { id: \"account\", label: \"Account\", icon: User },\n  { id: \"password\", label: \"Password\", icon: KeyRound },\n  { id: \"billing\", label: \"Billing\", icon: CreditCard },\n] as const\ntype TabId = (typeof tabs)[number][\"id\"]\n\nconst content: Record<TabId, { title: string; field: string; value: string }> = {\n  account: { title: \"Profile\", field: \"Display name\", value: \"Ada Lovelace\" },\n  password: { title: \"Security\", field: \"New password\", value: \"••••••••••\" },\n  billing: { title: \"Plan\", field: \"Card number\", value: \"•••• 4242\" },\n}\n\n/**\n * shadcn <Tabs> with a shared-layout pill and direction-aware panels.\n * Hover: a soft highlight glides to the hovered trigger. Disabled: triggers and fields disabled.\n */\nexport function SlidingTabs() {\n  const id = useId()\n  const { disabled, forceHover } = useDemoState()\n  const [value, setValue] = useState<TabId>(\"account\")\n  const [over, setOver] = useState<TabId | null>(null)\n  const [dir, setDir] = useState(1)\n  const hoverTab = disabled ? null : forceHover ? \"password\" : over\n  const change = (v: string) => {\n    const next = v as TabId\n    setDir(tabs.findIndex((t) => t.id === next) > tabs.findIndex((t) => t.id === value) ? 1 : -1)\n    setValue(next)\n  }\n  const c = content[value]\n\n  return (\n    <Tabs value={value} onValueChange={change} className=\"w-72\">\n      <LayoutGroup id={id}>\n        <TabsList className=\"w-full\" onPointerLeave={() => setOver(null)}>\n          {tabs.map((t) => (\n            <TabsTrigger\n              key={t.id}\n              value={t.id}\n              disabled={disabled}\n              onPointerEnter={() => setOver(t.id)}\n              className=\"relative data-[state=active]:bg-transparent data-[state=active]:shadow-none\"\n            >\n              {hoverTab === t.id && value !== t.id && (\n                <motion.span\n                  layoutId=\"hover\"\n                  className=\"bg-background/70 ring-border absolute inset-0 rounded-md ring-1\"\n                  initial={{ opacity: 0 }}\n                  animate={{ opacity: 1 }}\n                  exit={{ opacity: 0 }}\n                  transition={{ type: \"spring\", bounce: 0.2, duration: 0.35 }}\n                />\n              )}\n              {value === t.id && (\n                <motion.span layoutId=\"pill\" className=\"bg-background absolute inset-0 rounded-md shadow-sm\" transition={{ type: \"spring\", bounce: 0.25, duration: 0.5 }} />\n              )}\n              <motion.span className=\"relative z-10 flex items-center gap-1.5\" animate={{ y: hoverTab === t.id && value !== t.id ? -1 : 0 }}>\n                <t.icon />\n                {t.label}\n              </motion.span>\n            </TabsTrigger>\n          ))}\n        </TabsList>\n      </LayoutGroup>\n      <div className=\"relative h-36 overflow-hidden rounded-lg border p-4\">\n        <AnimatePresence mode=\"popLayout\" initial={false} custom={dir}>\n          <motion.div\n            key={value}\n            role=\"tabpanel\"\n            custom={dir}\n            variants={{\n              enter: (d: number) => ({ x: d * 60, opacity: 0, filter: \"blur(4px)\" }),\n              center: { x: 0, opacity: 1, filter: \"blur(0px)\" },\n              exit: (d: number) => ({ x: d * -60, opacity: 0, filter: \"blur(4px)\" }),\n            }}\n            initial=\"enter\"\n            animate=\"center\"\n            exit=\"exit\"\n            transition={{ type: \"spring\", bounce: 0.2, duration: 0.45 }}\n            className=\"space-y-3\"\n          >\n            <p className=\"text-sm font-semibold\">{c.title}</p>\n            <label htmlFor={`${id}-field`} className=\"text-muted-foreground block text-xs\">{c.field}</label>\n            <div className=\"flex gap-2\">\n              <Input id={`${id}-field`} defaultValue={c.value} className=\"h-8\" />\n              <Button size=\"sm\">Save</Button>\n            </div>\n          </motion.div>\n        </AnimatePresence>\n      </div>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Core controls"
+  ],
+  "type": "registry:component"
+}

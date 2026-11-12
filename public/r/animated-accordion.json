@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-accordion",
+  "title": "Accordion",
+  "description": "shadcn Accordion with a springy chevron, a highlight that glides to the open item, and answer lines that cascade in. Keeps Radix keyboard behaviour and the stock height animation. Hover: the trigger nudges right and its chevron dips. Disabled: items can't be toggled.",
+  "dependencies": [
+    "motion",
+    "radix-ui",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "accordion",
+    "utils",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/animated-accordion.tsx",
+      "content": "import { useId, useState } from \"react\"\nimport { LayoutGroup, motion } from \"motion/react\"\nimport { Accordion as AccordionPrimitive } from \"radix-ui\"\nimport { ChevronDown } from \"lucide-react\"\nimport { Accordion, AccordionContent, AccordionItem } from \"@/components/ui/accordion\"\nimport { cn } from \"@/lib/utils\"\nimport { useDemoState } from \"./demo-state\"\n\nconst FAQ = [\n  { q: \"Is it built on shadcn/ui?\", a: [\"Yes, every component composes stock shadcn parts.\", \"Install with the shadcn CLI and own the code.\"] },\n  { q: \"Does it respect reduced motion?\", a: [\"Animations drop to simple fades.\", \"Loops pause when reduced motion is on.\"] },\n  { q: \"Can I use my own theme?\", a: [\"Paste any shadcn or tweakcn theme.\", \"Every component reads only theme tokens.\"] },\n]\n\n/**\n * shadcn Accordion with a springy chevron, a highlight that glides to the open item,\n * and answer lines that cascade in. Keeps Radix keyboard behaviour and the stock\n * height animation. Hover: the trigger nudges right and its chevron dips.\n * Disabled: items can't be toggled.\n */\nexport function AnimatedAccordion() {\n  const id = useId()\n  const { disabled, forceHover } = useDemoState()\n  const [open, setOpen] = useState(\"item-0\")\n  const [over, setOver] = useState<string | null>(null)\n  const hoverItem = disabled ? null : forceHover ? \"item-1\" : over\n\n  return (\n    <LayoutGroup id={id}>\n      <Accordion type=\"single\" collapsible value={open} onValueChange={setOpen} disabled={disabled} className=\"w-80\">\n        {FAQ.map((f, i) => {\n          const value = `item-${i}`\n          const isOpen = open === value\n          return (\n            <AccordionItem key={value} value={value} className=\"relative\">\n              {isOpen && <motion.span layoutId=\"open-bar\" className=\"bg-primary absolute top-3 bottom-3 -left-3 w-0.5 rounded-full\" transition={{ type: \"spring\", stiffness: 400, damping: 30 }} />}\n              <AccordionPrimitive.Header className=\"flex\">\n                <AccordionPrimitive.Trigger\n                  className=\"focus-visible:ring-ring/50 flex flex-1 items-center justify-between gap-4 rounded-md py-4 text-left text-sm font-medium outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\"\n                  onPointerEnter={() => setOver(value)}\n                  onPointerLeave={() => setOver(null)}\n                >\n                  <motion.span animate={{ x: hoverItem === value ? 4 : 0 }} transition={{ type: \"spring\", stiffness: 400, damping: 25 }}>\n                    {f.q}\n                  </motion.span>\n                  <motion.span\n                    className=\"text-muted-foreground flex\"\n                    animate={{ rotate: isOpen ? 180 : 0, y: hoverItem === value && !isOpen ? 2 : 0 }}\n                    transition={{ type: \"spring\", stiffness: 300, damping: 15 }}\n                  >\n                    <ChevronDown className=\"size-4\" />\n                  </motion.span>\n                </AccordionPrimitive.Trigger>\n              </AccordionPrimitive.Header>\n              <AccordionContent>\n                <ul className=\"text-muted-foreground space-y-1\">\n                  {f.a.map((line, j) => (\n                    <motion.li key={line} className={cn(isOpen ? \"\" : \"opacity-0\")} initial={{ opacity: 0, y: -4 }} animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0 }} transition={{ delay: 0.08 + j * 0.07 }}>\n                      {line}\n                    </motion.li>\n                  ))}\n                </ul>\n              </AccordionContent>\n            </AccordionItem>\n          )\n        })}\n      </Accordion>\n    </LayoutGroup>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Core controls"
+  ],
+  "type": "registry:component"
+}

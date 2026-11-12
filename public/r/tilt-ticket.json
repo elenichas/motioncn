@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt-ticket",
+  "title": "Tilt Ticket",
+  "description": "3D tilting event ticket (Aceternity's 3D Card idea, flattened into shadcn tokens). Built on shadcn Card and Button; layers sit at different depths for parallax. Hover: the ticket tilts toward the pointer with a moving glare. Disabled: flat and dimmed.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "button",
+    "utils",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/tilt-ticket.tsx",
+      "content": "import { useEffect, useRef, useState } from \"react\"\nimport { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from \"motion/react\"\nimport { Wallet } from \"lucide-react\"\nimport { Card } from \"@/components/ui/card\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\nimport { useDemoState } from \"./demo-state\"\n\nconst bars = Array.from({ length: 34 }, (_, i) => 1 + ((i * 7) % 4))\n\n/**\n * 3D tilting event ticket (Aceternity's 3D Card idea, flattened into shadcn tokens).\n * Built on shadcn Card and Button; layers sit at different depths for parallax.\n * Hover: the ticket tilts toward the pointer with a moving glare. Disabled: flat and dimmed.\n */\nexport function TiltTicket() {\n  const { disabled, forceHover } = useDemoState()\n  const ref = useRef<HTMLDivElement>(null)\n  const [over, setOver] = useState(false)\n  const px = useMotionValue(0.5)\n  const py = useMotionValue(0.5)\n  const active = !disabled && (over || forceHover)\n\n  useEffect(() => {\n    if (forceHover && !disabled) (px.set(0.85), py.set(0.2))\n    else if (!over) (px.set(0.5), py.set(0.5))\n  }, [forceHover, disabled, over, px, py])\n\n  const rotateY = useSpring(useTransform(px, [0, 1], [-14, 14]), { stiffness: 180, damping: 18 })\n  const rotateX = useSpring(useTransform(py, [0, 1], [10, -10]), { stiffness: 180, damping: 18 })\n  const gx = useTransform(px, (v) => v * 100)\n  const gy = useTransform(py, (v) => v * 100)\n  const glare = useMotionTemplate`radial-gradient(240px circle at ${gx}% ${gy}%, rgb(255 255 255 / .35), transparent 60%)`\n\n  return (\n    <div style={{ perspective: 900 }} className={cn(disabled && \"opacity-60\")}>\n      <motion.div\n        ref={ref}\n        className=\"relative w-72\"\n        style={{ rotateX: disabled ? 0 : rotateX, rotateY: disabled ? 0 : rotateY, transformStyle: \"preserve-3d\" }}\n        onPointerEnter={() => setOver(true)}\n        onPointerLeave={() => (setOver(false), px.set(0.5), py.set(0.5))}\n        onPointerMove={(e) => {\n          if (disabled) return\n          const r = ref.current!.getBoundingClientRect()\n          px.set((e.clientX - r.left) / r.width)\n          py.set((e.clientY - r.top) / r.height)\n        }}\n      >\n        <Card className=\"gap-0 py-0 shadow-lg\" style={{ transformStyle: \"preserve-3d\" }}>\n          <div className=\"space-y-3 p-5\" style={{ transformStyle: \"preserve-3d\" }}>\n            <motion.p className=\"text-muted-foreground text-xs font-semibold tracking-widest uppercase\" style={{ translateZ: 30 }}>\n              Motion Conf 2026\n            </motion.p>\n            <motion.p className=\"text-2xl leading-tight font-semibold\" style={{ translateZ: 50 }}>\n              Springs &amp; Splines\n            </motion.p>\n            <motion.div className=\"grid grid-cols-3 gap-2 text-xs\" style={{ translateZ: 25 }}>\n              {[[\"Date\", \"14 Nov\"], [\"Row\", \"B\"], [\"Seat\", \"12\"]].map(([k, v]) => (\n                <div key={k}>\n                  <p className=\"text-muted-foreground\">{k}</p>\n                  <p className=\"text-sm font-semibold\">{v}</p>\n                </div>\n              ))}\n            </motion.div>\n          </div>\n          {/* perforation */}\n          <div className=\"relative h-0 border-t-2 border-dashed\">\n            <span className=\"bg-background absolute -top-3 -left-3 size-6 rounded-full border\" />\n            <span className=\"bg-background absolute -top-3 -right-3 size-6 rounded-full border\" />\n          </div>\n          <div className=\"flex items-center gap-3 p-5\" style={{ transformStyle: \"preserve-3d\" }}>\n            <motion.div className=\"flex h-10 flex-1 items-stretch gap-[2px]\" style={{ translateZ: 20 }} aria-label=\"Ticket barcode\" role=\"img\">\n              {bars.map((w, i) => (\n                <span key={i} className=\"bg-foreground\" style={{ width: w }} />\n              ))}\n            </motion.div>\n            <motion.div style={{ translateZ: 40 }}>\n              <Button size=\"sm\" disabled={disabled} data-hover-target>\n                <Wallet /> Add\n              </Button>\n            </motion.div>\n          </div>\n        </Card>\n        {/* glare */}\n        <motion.div className=\"pointer-events-none absolute inset-0 rounded-xl mix-blend-soft-light\" style={{ background: glare }} animate={{ opacity: active ? 1 : 0 }} />\n      </motion.div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Skeuomorphic"
+  ],
+  "type": "registry:component"
+}

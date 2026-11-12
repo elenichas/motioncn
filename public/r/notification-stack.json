@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notification-stack",
+  "title": "Notification Stack",
+  "description": "Sonner-style stack of shadcn Cards: swipe to dismiss, new ones drop in. Hover: the stack fans out. Disabled: stays collapsed, no swipe, dimmed.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "utils",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/notification-stack.tsx",
+      "content": "import { useRef, useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\nimport { Bell, CalendarDays, GitPullRequest, MessageCircle, Plus, X } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { Card } from \"@/components/ui/card\"\nimport { cn } from \"@/lib/utils\"\nimport { useDemoState, useHover } from \"./demo-state\"\n\nconst pool = [\n  { icon: MessageCircle, title: \"New comment\", body: \"Maya: “Love the spring on that tab pill.”\" },\n  { icon: GitPullRequest, title: \"PR merged\", body: \"feat(slider): mood face morphing\" },\n  { icon: CalendarDays, title: \"Design review\", body: \"Today at 15:30 · Canvas room\" },\n  { icon: Bell, title: \"Reminder\", body: \"Test with reduced motion enabled\" },\n]\ntype Note = { id: number; icon: (typeof pool)[number][\"icon\"]; title: string; body: string }\n\nconst H = 64\nconst GAP = 8\n\n/**\n * Sonner-style stack of shadcn Cards: swipe to dismiss, new ones drop in.\n * Hover: the stack fans out. Disabled: stays collapsed, no swipe, dimmed.\n */\nexport function NotificationStack() {\n  const next = useRef(3)\n  const [notes, setNotes] = useState<Note[]>(() => pool.slice(0, 3).map((p, i) => ({ ...p, id: i })))\n  const { disabled } = useDemoState()\n  const { hovered: open, hoverProps } = useHover()\n\n  const add = () => {\n    const p = pool[next.current % pool.length]\n    setNotes((n) => [{ ...p, id: next.current++ }, ...n].slice(0, 6))\n  }\n  const remove = (id: number) => setNotes((n) => n.filter((x) => x.id !== id))\n  const visible = notes.slice(0, open ? 6 : 3)\n  const height = open ? notes.length * (H + GAP) - GAP : H + Math.min(notes.length - 1, 2) * 10\n\n  return (\n    <div className=\"flex w-72 flex-col items-center gap-4\">\n      <motion.div\n        className=\"relative w-full\"\n        animate={{ height: Math.max(height, H) }}\n        transition={{ type: \"spring\", bounce: 0.2, duration: 0.5 }}\n        {...hoverProps}\n      >\n        <AnimatePresence initial={false}>\n          {visible.map((n, i) => (\n            <motion.div\n              key={n.id}\n              layout={false}\n              drag={disabled ? false : \"x\"}\n              dragSnapToOrigin\n              onDragEnd={(_, info) => Math.abs(info.offset.x) > 90 && remove(n.id)}\n              className={cn(\"absolute inset-x-0 top-0 cursor-grab active:cursor-grabbing\", disabled && \"cursor-not-allowed opacity-60\")}\n              style={{ height: H, zIndex: 10 - i }}\n              initial={{ y: -30, opacity: 0, scale: 0.9 }}\n              animate={{\n                y: open ? i * (H + GAP) : i * 10,\n                scale: open ? 1 : 1 - i * 0.05,\n                opacity: open ? 1 : i > 2 ? 0 : 1 - i * 0.15,\n              }}\n              exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}\n              transition={{ type: \"spring\", bounce: 0.25, duration: 0.5 }}\n            >\n              <Card className=\"h-full flex-row items-center gap-3 rounded-xl px-3 py-0 shadow-md\">\n              <span className=\"bg-primary/10 text-primary flex size-9 shrink-0 items-center justify-center rounded-lg\">\n                <n.icon className=\"size-4\" />\n              </span>\n              <div className=\"min-w-0 flex-1\">\n                <p className=\"truncate text-sm font-medium\">{n.title}</p>\n                <p className=\"text-muted-foreground truncate text-xs\">{n.body}</p>\n              </div>\n              <button aria-label=\"Dismiss\" onClick={() => remove(n.id)} className=\"text-muted-foreground hover:bg-accent hover:text-foreground flex size-6 shrink-0 items-center justify-center rounded-md disabled:opacity-50\">\n                <X className=\"size-4\" />\n              </button>\n              </Card>\n            </motion.div>\n          ))}\n        </AnimatePresence>\n        {notes.length === 0 && <p className=\"text-muted-foreground pt-5 text-center text-sm\">You’re all caught up</p>}\n      </motion.div>\n      <Button size=\"sm\" variant=\"outline\" onClick={add}>\n        <Plus /> Add notification\n      </Button>\n      <p className=\"text-muted-foreground text-xs\">{disabled ? \"Disabled\" : \"Hover to expand · swipe to dismiss\"}</p>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Swipe & gesture"
+  ],
+  "type": "registry:component"
+}

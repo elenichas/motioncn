@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slot-number",
+  "title": "Slot Number",
+  "description": "Rolling slot-machine digits used by several motioncn components.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/slot-number.tsx",
+      "content": "import { motion } from \"motion/react\"\nimport { cn } from \"@/lib/utils\"\n\n/**\n * Rolling \"slot machine\" number. Each digit is a 0–9 column that springs to\n * its value. Non-digits (\",\", \".\", \"$\", \"-\") render as static glyphs.\n * Keys are assigned from the right so columns stay stable as length changes.\n */\nexport function SlotNumber({ value, className }: { value: string; className?: string }) {\n  const chars = value.split(\"\")\n  return (\n    <span className={cn(\"inline-flex tabular-nums leading-none\", className)} aria-label={value}>\n      {chars.map((ch, i) => {\n        const key = chars.length - i\n        if (!/\\d/.test(ch)) {\n          return (\n            <motion.span key={`s${key}${ch}`} layout aria-hidden className=\"inline-block\">\n              {ch}\n            </motion.span>\n          )\n        }\n        const d = Number(ch)\n        return (\n          <span key={`d${key}`} aria-hidden className=\"relative inline-block h-[1em] overflow-hidden\" style={{ width: \"0.62em\" }}>\n            <motion.span\n              className=\"absolute inset-x-0 top-0 flex flex-col items-center\"\n              initial={false}\n              animate={{ y: `${-d}em` }}\n              transition={{ type: \"spring\", stiffness: 140, damping: 18, mass: 0.8 }}\n            >\n              {Array.from({ length: 10 }, (_, n) => (\n                <span key={n} className=\"block h-[1em] leading-none\">\n                  {n}\n                </span>\n              ))}\n            </motion.span>\n          </span>\n        )\n      })}\n    </span>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

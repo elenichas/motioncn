@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "testimonial-stack",
+  "title": "Testimonial Stack",
+  "description": "Testimonial stack for landing pages: the top card flips to the back every few seconds, the stack re-settles with springs, and dots track the position. Built on shadcn Card and Button. Ships with placeholder copy. Hover: auto-play pauses and the stack fans out. Disabled (or reduced motion): auto-play stops; disabled also disables the arrows.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "button",
+    "utils",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/testimonial-stack.tsx",
+      "content": "import { useEffect, useState } from \"react\"\nimport { motion, useReducedMotionConfig } from \"motion/react\"\nimport { ChevronLeft, ChevronRight, Quote } from \"lucide-react\"\nimport { Card } from \"@/components/ui/card\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\nimport { useDemoState, useHover } from \"./demo-state\"\n\n// Placeholder copy for the demo: swap in real, attributed quotes from your customers.\nconst QUOTES = [\n  { text: \"Your customer’s words go here: what changed for them after switching.\", name: \"Customer name\", role: \"Role, Company\" },\n  { text: \"Keep quotes short and specific. One concrete result beats three adjectives.\", name: \"Customer name\", role: \"Role, Company\" },\n  { text: \"Rotate three to five quotes. The stack shows there are more without a long page.\", name: \"Customer name\", role: \"Role, Company\" },\n]\n\n/**\n * Testimonial stack for landing pages: the top card flips to the back every few seconds,\n * the stack re-settles with springs, and dots track the position. Built on shadcn Card and Button.\n * Ships with placeholder copy. Hover: auto-play pauses and the stack fans out.\n * Disabled (or reduced motion): auto-play stops; disabled also disables the arrows.\n */\nexport function TestimonialStack() {\n  const { disabled } = useDemoState()\n  const { hovered, hoverProps } = useHover()\n  const reduced = useReducedMotionConfig()\n  const [top, setTop] = useState(0)\n  const next = (d: number) => setTop((t) => (t + d + QUOTES.length) % QUOTES.length)\n\n  useEffect(() => {\n    if (hovered || disabled || reduced) return\n    const id = window.setInterval(() => next(1), 3800)\n    return () => clearInterval(id)\n  }, [hovered, disabled, reduced])\n\n  return (\n    <div className={cn(\"flex w-80 flex-col items-center gap-4\", disabled && \"opacity-60\")} {...hoverProps}>\n      <p className=\"text-muted-foreground text-xs font-medium tracking-wide uppercase\">Sample testimonials</p>\n      <div className=\"relative h-48 w-full\" aria-live=\"polite\">\n        {QUOTES.map((q, i) => {\n          const depth = (i - top + QUOTES.length) % QUOTES.length\n          return (\n            <motion.div\n              key={i}\n              className=\"absolute inset-0\"\n              style={{ zIndex: QUOTES.length - depth }}\n              initial={false}\n              animate={{\n                y: depth * (hovered ? 16 : 10),\n                scale: 1 - depth * 0.05,\n                rotate: hovered ? depth * (i % 2 ? 2.5 : -2.5) : 0,\n                opacity: depth > 2 ? 0 : 1,\n              }}\n              transition={{ type: \"spring\", stiffness: 260, damping: 24 }}\n              aria-hidden={depth !== 0}\n            >\n              <Card className=\"h-full justify-between gap-3 p-5 shadow-md\">\n                <Quote className=\"text-primary size-5\" />\n                <p className=\"text-sm leading-relaxed\">{q.text}</p>\n                <div className=\"flex items-center gap-2\">\n                  <span className=\"bg-secondary text-secondary-foreground flex size-8 items-center justify-center rounded-full text-xs font-semibold\">CN</span>\n                  <div>\n                    <p className=\"text-sm font-medium\">{q.name}</p>\n                    <p className=\"text-muted-foreground text-xs\">{q.role}</p>\n                  </div>\n                </div>\n              </Card>\n            </motion.div>\n          )\n        })}\n      </div>\n      <div className=\"flex items-center gap-3 pt-3\">\n        <Button variant=\"ghost\" size=\"icon\" className=\"size-8\" onClick={() => next(-1)} disabled={disabled} aria-label=\"Previous testimonial\">\n          <ChevronLeft />\n        </Button>\n        <div className=\"flex gap-1.5\" aria-hidden>\n          {QUOTES.map((_, i) => (\n            <motion.span key={i} className=\"bg-primary h-1.5 rounded-full\" animate={{ width: i === top ? 18 : 6, opacity: i === top ? 1 : 0.3 }} />\n          ))}\n        </div>\n        <Button variant=\"ghost\" size=\"icon\" className=\"size-8\" onClick={() => next(1)} disabled={disabled} aria-label=\"Next testimonial\">\n          <ChevronRight />\n        </Button>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Landing page"
+  ],
+  "type": "registry:component"
+}

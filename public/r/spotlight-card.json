@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-card",
+  "title": "Spotlight Card",
+  "description": "Pricing card with a cursor-following spotlight and glowing border (the Magic UI \"Magic Card\" / Aceternity \"Spotlight\" idea, in shadcn tokens). Built on shadcn Card, Badge, Switch and Button. Hover: the spotlight follows the pointer (or drifts by itself in the Hover state). Disabled: no light, controls disabled.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "button",
+    "badge",
+    "switch",
+    "utils",
+    "https://motioncn.example.com/r/slot-number.json",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/spotlight-card.tsx",
+      "content": "import { useEffect, useRef, useState } from \"react\"\nimport { animate, motion, useMotionTemplate, useMotionValue, useSpring } from \"motion/react\"\nimport { Check, Sparkles } from \"lucide-react\"\nimport { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from \"@/components/ui/card\"\nimport { Button } from \"@/components/ui/button\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { Switch } from \"@/components/ui/switch\"\nimport { cn } from \"@/lib/utils\"\nimport { SlotNumber } from \"./slot-number\"\nimport { useDemoState } from \"./demo-state\"\n\nconst features = [\"Unlimited canvases\", \"Every component\", \"Theme & state compare\"]\n\n/**\n * Pricing card with a cursor-following spotlight and glowing border\n * (the Magic UI \"Magic Card\" / Aceternity \"Spotlight\" idea, in shadcn tokens).\n * Built on shadcn Card, Badge, Switch and Button.\n * Hover: the spotlight follows the pointer (or drifts by itself in the Hover state).\n * Disabled: no light, controls disabled.\n */\nexport function SpotlightCard() {\n  const { disabled, forceHover } = useDemoState()\n  const [over, setOver] = useState(false)\n  const [yearly, setYearly] = useState(false)\n  const ref = useRef<HTMLDivElement>(null)\n  const mx = useMotionValue(70)\n  const my = useMotionValue(25)\n  const x = useSpring(mx, { stiffness: 260, damping: 28 })\n  const y = useSpring(my, { stiffness: 260, damping: 28 })\n  const active = !disabled && (over || forceHover)\n\n  // In the forced Hover state the light drifts on its own\n  useEffect(() => {\n    if (!forceHover || disabled) return\n    const a = animate(mx, [20, 80, 20], { duration: 5, repeat: Infinity, ease: \"easeInOut\" })\n    const b = animate(my, [20, 70, 20], { duration: 3.5, repeat: Infinity, ease: \"easeInOut\" })\n    return () => (a.stop(), b.stop())\n  }, [forceHover, disabled, mx, my])\n\n  const glow = useMotionTemplate`radial-gradient(260px circle at ${x}% ${y}%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 70%)`\n  const ring = useMotionTemplate`radial-gradient(200px circle at ${x}% ${y}%, var(--primary), transparent 70%)`\n  const price = yearly ? 120 : 12\n\n  return (\n    <div\n      ref={ref}\n      className={cn(\"relative w-80 rounded-xl p-px\", disabled && \"opacity-60\")}\n      onPointerEnter={() => setOver(true)}\n      onPointerLeave={() => setOver(false)}\n      onPointerMove={(e) => {\n        const r = ref.current!.getBoundingClientRect()\n        mx.set(((e.clientX - r.left) / r.width) * 100)\n        my.set(((e.clientY - r.top) / r.height) * 100)\n      }}\n    >\n      {/* glowing border: a gradient behind a 1px inset card */}\n      <div className=\"bg-border absolute inset-0 rounded-xl\" />\n      <motion.div className=\"absolute inset-0 rounded-xl\" style={{ background: ring }} animate={{ opacity: active ? 1 : 0 }} transition={{ duration: 0.3 }} />\n      <Card className=\"relative gap-4 overflow-hidden border-0\">\n        <motion.div className=\"pointer-events-none absolute inset-0\" style={{ background: glow }} animate={{ opacity: active ? 1 : 0 }} transition={{ duration: 0.3 }} />\n        <CardHeader className=\"relative\">\n          <div className=\"flex items-center justify-between\">\n            <CardTitle className=\"text-lg\">Pro</CardTitle>\n            <Badge variant=\"secondary\">\n              <Sparkles /> Popular\n            </Badge>\n          </div>\n          <CardDescription>Everything you need to ship motion.</CardDescription>\n        </CardHeader>\n        <CardContent className=\"relative space-y-4\">\n          <div className=\"flex items-baseline gap-1\">\n            <span className=\"text-4xl font-semibold tracking-tight\">\n              £<SlotNumber value={String(price)} />\n            </span>\n            <span className=\"text-muted-foreground text-sm\">/{yearly ? \"year\" : \"month\"}</span>\n          </div>\n          <label className=\"flex items-center gap-2 text-sm\">\n            <Switch checked={yearly} onCheckedChange={setYearly} disabled={disabled} aria-label=\"Bill yearly\" />\n            Bill yearly <span className=\"text-muted-foreground\">(2 months free)</span>\n          </label>\n          <ul className=\"space-y-2 text-sm\">\n            {features.map((f, i) => (\n              <motion.li key={f} className=\"flex items-center gap-2\" animate={{ x: active ? 2 : 0 }} transition={{ delay: i * 0.04 }}>\n                <Check className=\"text-primary size-4\" /> {f}\n              </motion.li>\n            ))}\n          </ul>\n        </CardContent>\n        <CardFooter className=\"relative\">\n          <Button className=\"w-full\" disabled={disabled} data-hover-target>\n            Upgrade to Pro\n          </Button>\n        </CardFooter>\n      </Card>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Landing page"
+  ],
+  "type": "registry:component"
+}

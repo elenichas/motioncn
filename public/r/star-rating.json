@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "star-rating",
+  "title": "Star Rating",
+  "description": "Star rating built from shadcn ghost icon Buttons. Hover: stars preview-fill in a spring wave with the matching label. Disabled: buttons disabled.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/star-rating.tsx",
+      "content": "import { useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\nimport { Star } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { useDemoState } from \"./demo-state\"\n\nconst labels = [\"Tap to rate\", \"Hated it\", \"Didn’t like it\", \"It was fine\", \"Liked it\", \"Loved it!\"]\n\n/**\n * Star rating built from shadcn ghost icon Buttons.\n * Hover: stars preview-fill in a spring wave with the matching label. Disabled: buttons disabled.\n */\nexport function StarRating() {\n  const [rating, setRating] = useState(0)\n  const [over, setOver] = useState(0)\n  const { disabled, forceHover } = useDemoState()\n  const hover = disabled ? 0 : forceHover ? 3 : over\n  const shown = hover || rating\n\n  return (\n    <div className=\"flex flex-col items-center gap-3\">\n      <div className=\"flex gap-1\" role=\"radiogroup\" aria-label=\"Rating\" onMouseLeave={() => setOver(0)}>\n        {Array.from({ length: 5 }, (_, i) => {\n          const n = i + 1\n          const on = n <= shown\n          return (\n            <Button key={n} asChild variant=\"ghost\" size=\"icon\" className=\"size-auto p-1 hover:bg-transparent\">\n            <motion.button\n              disabled={disabled}\n              role=\"radio\"\n              aria-checked={rating === n}\n              aria-label={`${n} star${n > 1 ? \"s\" : \"\"}`}\n              onMouseEnter={() => setOver(n)}\n              onClick={() => setRating(n)}\n              animate={{ scale: hover === n ? 1.2 : 1, rotate: hover === n ? -8 : 0 }}\n              whileTap={disabled ? undefined : { scale: 0.85 }}\n              className=\"relative\"\n            >\n              <motion.span\n                className=\"block\"\n                initial={false}\n                animate={on ? { scale: [1, 1.35, 1], rotate: [0, 15, 0] } : { scale: 1 }}\n                transition={{ delay: on ? i * 0.05 : 0, duration: 0.35 }}\n              >\n                <Star className={cn(\"size-8 transition-colors\", on ? \"fill-amber-400 text-amber-400\" : \"text-muted-foreground/40\")} />\n              </motion.span>\n              <AnimatePresence>\n                {rating === 5 && n === 5 && !hover && (\n                  <span className=\"pointer-events-none absolute inset-0\">\n                    {Array.from({ length: 6 }, (_, k) => {\n                      const a = (k / 6) * Math.PI * 2\n                      return (\n                        <motion.span\n                          key={k}\n                          className=\"absolute top-1/2 left-1/2 text-amber-400\"\n                          initial={{ x: -4, y: -4, scale: 0, opacity: 1 }}\n                          animate={{ x: Math.cos(a) * 26 - 4, y: Math.sin(a) * 26 - 4, scale: 1, opacity: 0 }}\n                          transition={{ duration: 0.7, delay: 0.25 }}\n                        >\n                          <Star className=\"size-2 fill-current\" />\n                        </motion.span>\n                      )\n                    })}\n                  </span>\n                )}\n              </AnimatePresence>\n            </motion.button>\n            </Button>\n          )\n        })}\n      </div>\n      <div className=\"relative h-6 w-40 overflow-hidden text-center\">\n        <AnimatePresence mode=\"popLayout\" initial={false}>\n          <motion.p\n            key={shown}\n            initial={{ y: 16, opacity: 0 }}\n            animate={{ y: 0, opacity: 1 }}\n            exit={{ y: -16, opacity: 0 }}\n            className={cn(\"text-sm font-medium\", !shown && \"text-muted-foreground\")}\n          >\n            {disabled ? \"Rating disabled\" : labels[shown]}\n          </motion.p>\n        </AnimatePresence>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Fun widgets"
+  ],
+  "type": "registry:component"
+}

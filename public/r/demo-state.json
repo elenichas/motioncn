@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-state",
+  "title": "Demo state",
+  "description": "Hover/disabled showcase state used by motioncn components. Safe to keep: outside the playground every component is simply enabled.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/components/motion/demo-state.tsx",
+      "content": "import { createContext, useContext, useState } from \"react\"\n\n/**\n * Showcase state for a component on the canvas.\n * - enabled:  normal, fully interactive\n * - hover:    the component renders its hover animation without a pointer\n *             (also turns on `hover:` utilities for elements marked data-hover-target)\n * - disabled: native controls are disabled via <fieldset disabled>, and each\n *             component switches off its gestures and shows its disabled look\n */\nexport type DemoState = \"enabled\" | \"hover\" | \"disabled\"\nexport const demoStates: DemoState[] = [\"enabled\", \"hover\", \"disabled\"]\n\nconst Ctx = createContext<DemoState>(\"enabled\")\nexport const DemoStateProvider = Ctx.Provider\n\nexport function useDemoState() {\n  const state = useContext(Ctx)\n  return { state, disabled: state === \"disabled\", forceHover: state === \"hover\" }\n}\n\n/** Real pointer hover OR forced hover; always false when disabled. */\nexport function useHover() {\n  const { disabled, forceHover } = useDemoState()\n  const [over, setOver] = useState(false)\n  return {\n    hovered: !disabled && (over || forceHover),\n    hoverProps: {\n      onPointerEnter: () => setOver(true),\n      onPointerLeave: () => setOver(false),\n    },\n  }\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "title": "Marquee",
+  "description": "Infinite logo / tech marquee in two directions with faded edges (Magic UI Marquee / Motion Primitives InfiniteSlider). Built on shadcn Badge. Hover: the belt eases down to a crawl so items can be read. Disabled or reduced motion: paused.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "badge",
+    "utils",
+    "https://motioncn.example.com/r/demo-state.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/motion/marquee.tsx",
+      "content": "import { useEffect, useRef } from \"react\"\nimport { motion, useAnimationFrame, useMotionValue, useReducedMotionConfig, useSpring, type MotionValue } from \"motion/react\"\nimport { Atom, Braces, Component, Layers, Orbit, Shapes, Wind, Zap, type LucideIcon } from \"lucide-react\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { cn } from \"@/lib/utils\"\nimport { useDemoState, useHover } from \"./demo-state\"\n\nconst rowA: [LucideIcon, string][] = [\n  [Atom, \"React 19\"], [Braces, \"TypeScript\"], [Wind, \"Tailwind v4\"], [Component, \"shadcn/ui\"],\n]\nconst rowB: [LucideIcon, string][] = [\n  [Orbit, \"Motion\"], [Layers, \"Radix\"], [Zap, \"Vite\"], [Shapes, \"Lucide\"],\n]\n\nfunction Row({ items, speed, direction }: { items: [LucideIcon, string][]; speed: MotionValue<number>; direction: 1 | -1 }) {\n  const x = useMotionValue(0)\n  const track = useRef<HTMLDivElement>(null)\n\n  useAnimationFrame((_, delta) => {\n    const half = (track.current?.scrollWidth ?? 0) / 2\n    if (!half) return\n    let next = x.get() - direction * speed.get() * delta\n    // wrap seamlessly between -half and 0\n    next = ((next % half) - half) % half\n    x.set(next)\n  })\n\n  return (\n    <div className=\"overflow-hidden\" style={{ maskImage: \"linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent)\" }}>\n      <motion.div ref={track} className=\"flex w-max gap-2 py-1\" style={{ x }}>\n        {[0, 1].map((copy) => (\n          <div key={copy} className=\"flex gap-2\" aria-hidden={copy === 1}>\n            {items.map(([Icon, label]) => (\n              <motion.span key={label} whileHover={{ y: -3 }} transition={{ type: \"spring\", stiffness: 400, damping: 15 }}>\n                <Badge variant=\"outline\" className=\"bg-background h-8 gap-1.5 rounded-full px-3 text-sm [&>svg]:size-4\">\n                  <Icon className=\"text-primary\" /> {label}\n                </Badge>\n              </motion.span>\n            ))}\n          </div>\n        ))}\n      </motion.div>\n    </div>\n  )\n}\n\n/**\n * Infinite logo / tech marquee in two directions with faded edges\n * (Magic UI Marquee / Motion Primitives InfiniteSlider). Built on shadcn Badge.\n * Hover: the belt eases down to a crawl so items can be read. Disabled or reduced motion: paused.\n */\nexport function Marquee() {\n  const { disabled } = useDemoState()\n  const { hovered, hoverProps } = useHover()\n  const reduced = useReducedMotionConfig()\n  const target = disabled || reduced ? 0 : hovered ? 0.008 : 0.045 // px per ms\n  const speed = useSpring(target, { stiffness: 60, damping: 20 })\n  useEffect(() => speed.set(target), [target, speed])\n\n  return (\n    <div className={cn(\"w-80 space-y-3\", disabled && \"opacity-60\")} {...hoverProps}>\n      <div className=\"text-center\">\n        <p className=\"text-sm font-semibold\">Built with</p>\n        <p className=\"text-muted-foreground text-xs\">{disabled ? \"Paused (disabled)\" : hovered ? \"Slowed down so you can read\" : \"Hover to slow down\"}</p>\n      </div>\n      <Row items={rowA} speed={speed} direction={1} />\n      <Row items={rowB} speed={speed} direction={-1} />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "Landing page"
+  ],
+  "type": "registry:component"
+}
