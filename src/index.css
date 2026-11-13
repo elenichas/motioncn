@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Project canvases bring their own Tailwind build (src/projects/<id>/preview.css). */
+@source not "./projects";
+
 @custom-variant dark (&:is(.dark *));
 
 /* `hover:` also applies when a canvas frame forces its Hover state

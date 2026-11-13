@@ -1,0 +1,109 @@
+{
+  "id": "aspra",
+  "name": "Aspra Milos",
+  "repo": "../arden-house-mobile",
+  "css": "app/globals.css",
+  "publicDir": "public",
+  "sourceDirs": [
+    "components/aspra"
+  ],
+  "exclude": [
+    "components/aspra/suite3d"
+  ],
+  "library": [
+    "components/aspra/ui.tsx"
+  ],
+  "unusedKit": "components/ui",
+  "rules": "PRODUCT.md",
+  "stubs": {
+    "components/aspra/suite3d/suite-tour.tsx": "src/projects/aspra/stubs/suite-tour.tsx"
+  },
+  "watch": {
+    "branch": "main",
+    "intervalSec": 20
+  },
+  "navigation": {
+    "also": [
+      "setAdding",
+      "setTour",
+      "setLeaving",
+      "setShowRecipe"
+    ]
+  },
+  "autofix": {
+    "text": [
+      "ink",
+      "ink-2",
+      "ink-3",
+      "white",
+      "sea-deep",
+      "clay"
+    ],
+    "surface": [
+      "white",
+      "chalk",
+      "chalk-2",
+      "sea-wash",
+      "clay-wash",
+      "sulphur",
+      "sea-light",
+      "obsidian",
+      "obsidian-2",
+      "sea",
+      "clay"
+    ],
+    "border": [
+      "border",
+      "pumice",
+      "stone",
+      "sea-light",
+      "ink-3"
+    ],
+    "typeScale": [
+      12,
+      13,
+      13.5,
+      14,
+      14.5,
+      15,
+      16,
+      17,
+      22,
+      26,
+      38,
+      56,
+      64
+    ],
+    "minText": 12,
+    "radius": [
+      10,
+      12,
+      14,
+      18,
+      24,
+      28
+    ],
+    "grid": 4,
+    "page": "chalk",
+    "recipes": {
+      "_source": "Each recipe is copied from how the app already styles that role.",
+      "card": "glass w-full max-w-[360px] space-y-3 rounded-2xl p-4 text-ink md:max-w-[440px] md:space-y-4 md:p-5",
+      "heading": "font-display text-[26px] leading-tight text-ink",
+      "body": "text-[15px] text-ink-2",
+      "caption": "block text-[13.5px] text-ink-3",
+      "input": "w-full resize-none rounded-xl glass px-4 py-3 text-[15px] text-ink placeholder:text-ink-3 focus-visible:border-sea",
+      "choiceGroup": "flex flex-wrap gap-1",
+      "choice": "grid size-11 shrink-0 place-items-center rounded-full text-[17px] text-ink-2 transition-colors hover:bg-ink/5 aria-pressed:bg-sea aria-pressed:text-white",
+      "action": {
+        "component": "Button",
+        "from": "components/aspra/ui",
+        "props": "block"
+      },
+      "image": {
+        "component": "Photo",
+        "from": "components/aspra/ui",
+        "className": "h-28 w-full rounded-xl"
+      }
+    }
+  }
+}

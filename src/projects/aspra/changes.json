@@ -1,0 +1,61 @@
+{
+  "from": "d991eac",
+  "to": "43bdc14",
+  "at": "2026-11-12T20:51:51.223Z",
+  "commits": [
+    {
+      "sha": "43bdc14",
+      "author": "Eleni",
+      "date": "2026-11-12T20:51:22Z",
+      "subject": "Add guest feedback panel"
+    }
+  ],
+  "changedFiles": [
+    "components/aspra/guest-feedback-panel.tsx"
+  ],
+  "added": [
+    {
+      "name": "GuestFeedbackPanel",
+      "file": "components/aspra/guest-feedback-panel.tsx",
+      "line": 6,
+      "exported": true,
+      "library": false,
+      "props": "",
+      "findings": [
+        {
+          "level": "issue",
+          "text": "13 hard-coded colours (#ff00cc, #ffcc00, #00ff00, #000000, #ffff00) instead of brand tokens."
+        },
+        {
+          "level": "warn",
+          "text": "8 inline style objects: styling the scanner and theme cannot see."
+        },
+        {
+          "level": "issue",
+          "text": "Sets its own font (Comic Sans MS) instead of the brand fonts."
+        },
+        {
+          "level": "issue",
+          "text": "Text at 9, 10, 11, 8px, under the 12px minimum for readability."
+        },
+        {
+          "level": "issue",
+          "text": "2 clickable divs or spans: not reachable by keyboard and not announced as buttons."
+        },
+        {
+          "level": "issue",
+          "text": "1 image without alt text."
+        },
+        {
+          "level": "issue",
+          "text": "Uses none of the theme's tokens, so a theme change does not reach it."
+        },
+        {
+          "level": "warn",
+          "text": "Imports nothing from the component library."
+        }
+      ]
+    }
+  ],
+  "removed": []
+}

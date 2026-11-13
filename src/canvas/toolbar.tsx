@@ -343,7 +343,7 @@ export function Toolbar(p: Props) {
           desc={
             <span className="mt-1 block space-y-0.5">
               <span className="flex items-center gap-1.5"><Hand className="size-3" /> Drag the background or hold Space to pan</span>
-              <span className="flex items-center gap-1.5"><ZoomIn className="size-3" /> Ctrl/⌘ + scroll or pinch to zoom</span>
+              <span className="flex items-center gap-1.5"><ZoomIn className="size-3" /> Mouse wheel, pinch or Ctrl/⌘ + scroll to zoom</span>
               <span className="flex items-center gap-1.5"><MousePointerClick className="size-3" /> Click a frame to edit just that one; drag its title to move it</span>
               <span className="flex items-center gap-1.5"><Crosshair className="size-3" /> Double-click a frame title to zoom to it</span>
             </span>

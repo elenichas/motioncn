@@ -66,16 +66,86 @@ export const contrast = (a: RGBA, b: RGBA) => {
 }
 export const hex = ([r, g, b]: RGBA) => "#" + [r, g, b].map((v) => Math.round(v).toString(16).padStart(2, "0")).join("")
 
-/** Effective background behind an element: composite ancestor backgrounds until opaque. */
+/**
+ * Effective background behind an element: composite ancestor backgrounds until opaque, including
+ * positioned layers inside an ancestor that sit under the element and cover its centre (a sliding
+ * "selected" pill, a highlight). Pure geometry, so it works off-screen too.
+ */
+/**
+ * The average colour of a loaded image under a point-sized area of the page, or null when it cannot be read
+ * (not loaded, or from another origin). Assumes object-fit: cover, centred, which is how photos behind text are set.
+ */
+const sampler = typeof document !== "undefined" ? document.createElement("canvas") : null
+function imageColour(img: HTMLImageElement, r: DOMRect): RGBA | null {
+  if (!sampler || !img.complete || !img.naturalWidth) return null
+  try {
+    const b = img.getBoundingClientRect()
+    const cover = getComputedStyle(img).objectFit === "cover"
+    const sx = cover ? Math.max(b.width / img.naturalWidth, b.height / img.naturalHeight) : b.width / img.naturalWidth
+    const sy = cover ? sx : b.height / img.naturalHeight
+    // where the text's box falls in the image's own pixels
+    const ox = (img.naturalWidth * sx - b.width) / 2
+    const oy = (img.naturalHeight * sy - b.height) / 2
+    const x0 = Math.max(0, (Math.max(r.left, b.left) - b.left + ox) / sx)
+    const y0 = Math.max(0, (Math.max(r.top, b.top) - b.top + oy) / sy)
+    const w = Math.max(1, Math.min(r.right, b.right) / sx - Math.max(r.left, b.left) / sx)
+    const h = Math.max(1, Math.min(r.bottom, b.bottom) / sy - Math.max(r.top, b.top) / sy)
+    sampler.width = sampler.height = 8
+    const ctx = sampler.getContext("2d", { willReadFrequently: true })!
+    ctx.drawImage(img, x0, y0, w, h, 0, 0, 8, 8)
+    const d = ctx.getImageData(0, 0, 8, 8).data
+    let R = 0, G = 0, B = 0
+    for (let i = 0; i < d.length; i += 4) (R += d[i]), (G += d[i + 1]), (B += d[i + 2])
+    const n = d.length / 4
+    return [R / n, G / n, B / n, 1]
+  } catch {
+    return null
+  }
+}
+
 function effectiveBackground(el: Element): { bg: RGBA; uncertain: boolean } {
   const layers: RGBA[] = []
   let uncertain = false
-  for (let n: Element | null = el; n; n = n.parentElement) {
+  const r = el.getBoundingClientRect()
+  const x = r.left + r.width / 2
+  const y = r.top + r.height / 2
+  const covers = (e: Element) => {
+    const b = e.getBoundingClientRect()
+    return b.width > 0 && b.height > 0 && x >= b.left && x <= b.right && y >= b.top && y <= b.bottom
+  }
+  /** Adds an element's own background; true once the stack is opaque. */
+  const add = (n: Element) => {
     const cs = getComputedStyle(n)
     if (cs.backgroundImage && cs.backgroundImage !== "none") uncertain = true
+    // A photo behind the text: what shows is the picture, not the element's background colour (its loading
+    // placeholder). Use the picture's average colour under the text; it varies, so the result needs an eye.
+    if (n instanceof HTMLImageElement && n !== el) {
+      uncertain = true
+      const photo = imageColour(n, r)
+      if (photo && Number(cs.opacity) > 0) layers.push(Number(cs.opacity) < 1 ? [photo[0], photo[1], photo[2], Number(cs.opacity)] : photo)
+      if (photo) return Number(cs.opacity) >= 1
+      if (n.complete && n.naturalWidth) return false
+    }
     const c = toRGBA(cs.backgroundColor)
-    if (c[3] > 0) layers.push(c)
-    if (c[3] >= 1) break
+    if (c[3] > 0 && Number(cs.opacity) > 0) layers.push(c)
+    return c[3] >= 1 && Number(cs.opacity) >= 1
+  }
+  let child: Element | null = null
+  for (let n: Element | null = el; n; child = n, n = n.parentElement) {
+    if (child) {
+      // earlier positioned siblings of the path paint above n's background and below the text
+      let opaque = false
+      for (const s of [...n.children].reverse()) {
+        if (s === child || !(s.compareDocumentPosition(child) & Node.DOCUMENT_POSITION_FOLLOWING)) continue
+        const pos = getComputedStyle(s).position
+        if ((pos === "absolute" || pos === "fixed") && covers(s) && add(s)) {
+          opaque = true
+          break
+        }
+      }
+      if (opaque) break
+    }
+    if (add(n)) break
   }
   let bg: RGBA = [255, 255, 255, 1]
   for (let i = layers.length - 1; i >= 0; i--) bg = over(layers[i], bg)
@@ -186,7 +256,8 @@ export function inspect(target: Element): Report {
       id: "contrast",
       label: "Text contrast",
       value: `${ratio.toFixed(2)}:1`,
-      level: disabled ? "info" : ratio >= aaa ? "pass" : ratio >= aa ? "pass" : "fail",
+      // Over a photo or gradient the number is an estimate: a shortfall is something to look at, not a failure.
+      level: disabled ? "info" : ratio >= aa ? "pass" : uncertain ? "warn" : "fail",
       note: disabled
         ? "Disabled control: exempt from contrast (WCAG 1.4.3)"
         : `${ratio >= aa ? "AA ✓" : "AA ✗"} ${ratio >= aaa ? "AAA ✓" : "AAA ✗"} · needs ${aa}:1 for ${large ? "large" : "normal"} text${uncertain ? " · gradient/image behind: verify by eye" : ""}`,
@@ -202,7 +273,7 @@ export function inspect(target: Element): Report {
     // icon / graphic: non-text contrast against its background
     const g = target.closest("svg") ?? target
     const cs = getComputedStyle(g)
-    const { bg } = effectiveBackground(g)
+    const { bg, uncertain } = effectiveBackground(g)
     const col = toRGBA(cs.color)
     if (col[3] === 0 && interactive?.matches("input")) {
       checks.push({ id: "nontext", label: "Visual", value: "custom", level: "info", note: "Input is visually hidden; its slots render the value (checked separately)" })
@@ -214,8 +285,8 @@ export function inspect(target: Element): Report {
       id: "nontext",
       label: "Graphic contrast",
       value: `${ratio.toFixed(2)}:1`,
-      level: disabled ? "info" : ratio >= 3 ? "pass" : interactive ? "fail" : "warn",
-      note: disabled ? "Disabled: exempt" : `Icons and control boundaries need 3:1 (WCAG 1.4.11)${interactive ? "" : " · decorative graphics are exempt"}`,
+      level: disabled ? "info" : ratio >= 3 ? "pass" : interactive && !uncertain ? "fail" : "warn",
+      note: disabled ? "Disabled: exempt" : `Icons and control boundaries need 3:1 (WCAG 1.4.11)${interactive ? "" : " · decorative graphics are exempt"}${uncertain ? " · gradient/image behind: verify by eye" : ""}`,
     })
     }
   }
@@ -264,11 +335,12 @@ export function inspect(target: Element): Report {
 
 /** Quick scan of a whole frame: counts failing checks. */
 export type Finding = { what: string; check: string; value: string; level: Level }
-export function scan(root: Element): { issues: number; warnings: number; checked: number; findings: Finding[] } {
+/** `describe` adds fields to each finding from the element it is about (e.g. which component owns it). */
+export function scan<X extends object = object>(root: Element, describe?: (el: Element, check: Check) => X): { issues: number; warnings: number; checked: number; findings: Array<Finding & Partial<X>> } {
   let issues = 0
   let warnings = 0
   let checked = 0
-  const findings: Finding[] = []
+  const findings: Array<Finding & Partial<X>> = []
   const seen = new Set<Element>()
   const candidates: Element[] = []
   root.querySelectorAll("*").forEach((el) => {
@@ -288,7 +360,7 @@ export function scan(root: Element): { issues: number; warnings: number; checked
     for (const c of rep.checks) {
       if (c.level === "fail") issues++
       else if (c.level === "warn") warnings++
-      if (c.level === "fail" || c.level === "warn") findings.push({ what: `${rep.role}${rep.name ? ` “${rep.name.slice(0, 24)}”` : ""}`, check: c.label, value: c.value, level: c.level })
+      if (c.level === "fail" || c.level === "warn") findings.push({ what: `${rep.role}${rep.name ? ` “${rep.name.slice(0, 24)}”` : ""}`, check: c.label, value: c.value, level: c.level, ...(describe?.(el, c) as Partial<X>) })
     }
   }
   return { issues, warnings, checked, findings }

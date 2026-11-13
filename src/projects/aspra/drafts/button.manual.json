@@ -1,0 +1,11 @@
+[
+  {
+    "selector": "#root > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > button:nth-child(5)",
+    "label": "<button> “outline”",
+    "styles": {
+      "border-width": "2px",
+      "border-style": "solid",
+      "border-color": "var(--ink-3)"
+    }
+  }
+]

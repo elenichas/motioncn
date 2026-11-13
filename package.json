@@ -10,7 +10,8 @@
     "registry": "node scripts/build-registry.mjs && rm -rf public/r && shadcn build -o public/r",
     "registry:verify": "node scripts/verify-registry.mjs",
     "test:visual": "playwright test",
-    "test": "npm run registry:verify && npm run test:visual"
+    "test": "npm run registry:verify && npm run test:visual",
+    "scan": "node scripts/scan-project.mjs"
   },
   "keywords": [],
   "author": "",
