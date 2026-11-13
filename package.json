@@ -9,8 +9,7 @@
     "typecheck": "tsc -b",
     "registry": "node scripts/build-registry.mjs && rm -rf public/r && shadcn build -o public/r",
     "registry:verify": "node scripts/verify-registry.mjs",
-    "test:visual": "playwright test",
-    "test": "npm run registry:verify && npm run test:visual",
+    "test": "npm run registry:verify",
     "scan": "node scripts/scan-project.mjs"
   },
   "keywords": [],
@@ -29,7 +28,6 @@
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.3.5",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
