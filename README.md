@@ -49,7 +49,7 @@ npm run dev              # http://localhost:5173
 | --- | --- |
 | `npm run dev` | Starts the playground |
 | `npm run build` | Generates the registry, typechecks and builds the static site into `dist/` |
-| `npm test` | Verifies each registry item installs on its own, then runs 228 visual regression screenshots |
+| `npm test` | Verifies each registry item installs on its own |
 
 ## Install components
 
@@ -79,17 +79,13 @@ Notes:
 2. Set `REGISTRY_URL` and `VITE_REGISTRY_URL` to the live origin, e.g. `https://motioncn.vercel.app`.
 3. Redeploy.
 
-Until then, install commands use the placeholder `motioncn.example.com`. CI (`.github/workflows/ci.yml`) runs the build, the registry check and the visual tests on every push.
+Until then, install commands use the placeholder `motioncn.example.com`. CI (`.github/workflows/ci.yml`) runs the build and the registry check on every push.
 
 ## Tests
 
 | Command | What it checks |
 | --- | --- |
 | `npm run registry:verify` | Installs every registry item on its own into an empty project and typechecks it |
-| `npm run test:visual` | Playwright screenshots of 38 components × 3 states × 2 modes (228), compared with baselines in `tests/visual.spec.ts-snapshots/` |
-| `npm run test:visual -- --update-snapshots` | Accepts intentional visual changes |
-
-The baselines are Linux screenshots, so run the tests in CI, or update the baselines on macOS or Windows first.
 
 ## The playground
 
@@ -122,7 +118,7 @@ The baselines are Linux screenshots, so run the tests in CI, or update the basel
 
 Each frame shows a summary badge.
 
-**Embed a single component:** `/?embed=mood-slider&state=hover&mode=dark&theme=rose`. Add `&static=1` to reduce motion. The visual tests use this view.
+**Embed a single component:** `/?embed=mood-slider&state=hover&mode=dark&theme=rose`. Add `&static=1` to reduce motion.
 
 **Canvas controls**
 
@@ -172,7 +168,6 @@ src/
   lib/                  themes (+ CSS import), a11y checks, source info, layout save/share
   registry.tsx          categories and canvas layout
 scripts/                registry build + verify
-tests/                  Playwright visual regression
 ```
 
 ## Adding a component

@@ -1,0 +1,3984 @@
+{
+  "project": "aspra",
+  "repo": "../arden-house-mobile",
+  "commit": "43bdc14",
+  "scannedAt": "2026-11-13T11:37:33.283Z",
+  "files": 16,
+  "tokens": [
+    {
+      "name": "chalk",
+      "value": "#f4f5f7"
+    },
+    {
+      "name": "chalk-2",
+      "value": "#eceef2"
+    },
+    {
+      "name": "pumice",
+      "value": "#dfe2e8"
+    },
+    {
+      "name": "stone",
+      "value": "#b9bec9"
+    },
+    {
+      "name": "obsidian",
+      "value": "#0a0c11"
+    },
+    {
+      "name": "obsidian-2",
+      "value": "#171b24"
+    },
+    {
+      "name": "obsidian-3",
+      "value": "#232936"
+    },
+    {
+      "name": "ink",
+      "value": "#0a0c11"
+    },
+    {
+      "name": "ink-2",
+      "value": "#353b47"
+    },
+    {
+      "name": "ink-3",
+      "value": "#596070"
+    },
+    {
+      "name": "sea",
+      "value": "#1c57f5"
+    },
+    {
+      "name": "sea-deep",
+      "value": "#1340c2"
+    },
+    {
+      "name": "sea-light",
+      "value": "#a9c2ff"
+    },
+    {
+      "name": "sea-wash",
+      "value": "#e6edff"
+    },
+    {
+      "name": "sulphur",
+      "value": "#9dbaff"
+    },
+    {
+      "name": "sulphur-deep",
+      "value": "#1340c2"
+    },
+    {
+      "name": "clay",
+      "value": "#c8321f"
+    },
+    {
+      "name": "clay-wash",
+      "value": "#fdecea"
+    },
+    {
+      "name": "olive",
+      "value": "#17794a"
+    },
+    {
+      "name": "background",
+      "value": "var(--chalk)"
+    },
+    {
+      "name": "foreground",
+      "value": "var(--ink)"
+    },
+    {
+      "name": "card",
+      "value": "white"
+    },
+    {
+      "name": "card-foreground",
+      "value": "var(--ink)"
+    },
+    {
+      "name": "popover",
+      "value": "white"
+    },
+    {
+      "name": "popover-foreground",
+      "value": "var(--ink)"
+    },
+    {
+      "name": "primary",
+      "value": "var(--sea)"
+    },
+    {
+      "name": "primary-foreground",
+      "value": "white"
+    },
+    {
+      "name": "secondary",
+      "value": "var(--chalk-2)"
+    },
+    {
+      "name": "secondary-foreground",
+      "value": "var(--ink)"
+    },
+    {
+      "name": "muted",
+      "value": "var(--chalk-2)"
+    },
+    {
+      "name": "muted-foreground",
+      "value": "var(--ink-3)"
+    },
+    {
+      "name": "accent",
+      "value": "var(--sea-wash)"
+    },
+    {
+      "name": "accent-foreground",
+      "value": "var(--ink)"
+    },
+    {
+      "name": "destructive",
+      "value": "var(--clay)"
+    },
+    {
+      "name": "destructive-foreground",
+      "value": "white"
+    },
+    {
+      "name": "border",
+      "value": "#e0e3e9"
+    },
+    {
+      "name": "input",
+      "value": "#d3d7df"
+    },
+    {
+      "name": "ring",
+      "value": "var(--sea)"
+    },
+    {
+      "name": "chart-1",
+      "value": "var(--sea)"
+    },
+    {
+      "name": "chart-2",
+      "value": "var(--sulphur)"
+    },
+    {
+      "name": "chart-3",
+      "value": "var(--clay)"
+    },
+    {
+      "name": "chart-4",
+      "value": "var(--olive)"
+    },
+    {
+      "name": "chart-5",
+      "value": "var(--stone)"
+    },
+    {
+      "name": "radius",
+      "value": "0.875rem"
+    },
+    {
+      "name": "sidebar",
+      "value": "var(--chalk)"
+    },
+    {
+      "name": "sidebar-foreground",
+      "value": "var(--ink)"
+    },
+    {
+      "name": "sidebar-primary",
+      "value": "var(--sea)"
+    },
+    {
+      "name": "sidebar-primary-foreground",
+      "value": "white"
+    },
+    {
+      "name": "sidebar-accent",
+      "value": "var(--sea-wash)"
+    },
+    {
+      "name": "sidebar-accent-foreground",
+      "value": "var(--ink)"
+    },
+    {
+      "name": "sidebar-border",
+      "value": "var(--border)"
+    },
+    {
+      "name": "sidebar-ring",
+      "value": "var(--sea)"
+    },
+    {
+      "name": "ease-out",
+      "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+    }
+  ],
+  "utilities": [
+    {
+      "name": "glass",
+      "note": "Frosted glass on light backgrounds: cards, bars, sheets.",
+      "body": "background: rgb(255 255 255 / 0.62);\n  backdrop-filter: blur(18px) saturate(1.7);\n  border: 1px solid rgb(255 255 255 / 0.75);\n  box-shadow:\n    inset 0 1px 0 rgb(255 255 255 / 0.9),\n    0 1px 2px rgb(10 12 17 / 0.04),\n    0 8px 8px -6px rgb(10 12 17 / 0.07);"
+    },
+    {
+      "name": "glass-strong",
+      "note": "A more opaque pane for sheets and panels that hold a lot of text.",
+      "body": "background: rgb(248 249 251 / 0.82);\n  backdrop-filter: blur(26px) saturate(1.8);\n  border: 1px solid rgb(255 255 255 / 0.8);\n  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9);"
+    },
+    {
+      "name": "glass-dark",
+      "note": "Smoked glass on dark backgrounds and photos.",
+      "body": "background: rgb(255 255 255 / 0.09);\n  backdrop-filter: blur(20px) saturate(1.6);\n  border: 1px solid rgb(255 255 255 / 0.16);\n  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14);"
+    },
+    {
+      "name": "glass-smoke",
+      "note": "Darker smoked glass for text and controls that sit on photos or the 3D view.",
+      "body": "background: rgb(10 12 17 / 0.5);\n  backdrop-filter: blur(22px) saturate(1.5);\n  border: 1px solid rgb(255 255 255 / 0.2);\n  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.16);"
+    },
+    {
+      "name": "ambient",
+      "note": "Soft colour behind the glass: sea blue, aqua and a little evening warmth.",
+      "body": "background:\n    radial-gradient(70% 38% at 0% 0%, rgb(28 87 245 / 0.2), transparent 70%),\n    radial-gradient(60% 34% at 100% 18%, rgb(42 196 214 / 0.2), transparent 70%),\n    radial-gradient(70% 36% at 80% 62%, rgb(28 87 245 / 0.1), transparent 70%),\n    radial-gradient(80% 40% at 10% 100%, rgb(255 150 110 / 0.16), transparent 70%),\n    var(--chalk);\n  background-attachment: fixed;"
+    },
+    {
+      "name": "photo-fade",
+      "note": "Photo that melts into the obsidian surface below it.",
+      "body": "background: linear-gradient(\n    180deg,\n    rgb(10 12 17 / 0) 35%,\n    rgb(10 12 17 / 0.55) 70%,\n    rgb(10 12 17 / 1) 100%\n  );"
+    }
+  ],
+  "typeSizes": [
+    {
+      "value": "text-[15px]",
+      "count": 43,
+      "at": [
+        "components/aspra/app.tsx:202",
+        "components/aspra/entry/booking-flow.tsx:211",
+        "components/aspra/entry/booking-flow.tsx:318",
+        "components/aspra/entry/booking-flow.tsx:423",
+        "components/aspra/entry/booking-flow.tsx:715",
+        "components/aspra/entry/booking-flow.tsx:719",
+        "components/aspra/entry/gate.tsx:95",
+        "components/aspra/entry/guest-entry.tsx:39"
+      ],
+      "px": 15
+    },
+    {
+      "value": "text-[14px]",
+      "count": 41,
+      "at": [
+        "components/aspra/app.tsx:173",
+        "components/aspra/app.tsx:376",
+        "components/aspra/app.tsx:385",
+        "components/aspra/entry/booking-flow.tsx:214",
+        "components/aspra/entry/booking-flow.tsx:256",
+        "components/aspra/entry/booking-flow.tsx:444",
+        "components/aspra/entry/booking-flow.tsx:457",
+        "components/aspra/entry/booking-flow.tsx:493"
+      ],
+      "px": 14
+    },
+    {
+      "value": "text-[16px]",
+      "count": 26,
+      "at": [
+        "components/aspra/entry/booking-flow.tsx:238",
+        "components/aspra/entry/booking-flow.tsx:262",
+        "components/aspra/entry/booking-flow.tsx:557",
+        "components/aspra/entry/booking-flow.tsx:599",
+        "components/aspra/entry/booking-flow.tsx:611",
+        "components/aspra/entry/booking-flow.tsx:624",
+        "components/aspra/entry/booking-flow.tsx:688",
+        "components/aspra/entry/guest-entry.tsx:48"
+      ],
+      "px": 16
+    },
+    {
+      "value": "text-[13px]",
+      "count": 21,
+      "at": [
+        "components/aspra/app.tsx:229",
+        "components/aspra/entry/booking-flow.tsx:366",
+        "components/aspra/entry/booking-flow.tsx:429",
+        "components/aspra/entry/booking-flow.tsx:675",
+        "components/aspra/entry/booking-flow.tsx:679",
+        "components/aspra/entry/gate.tsx:57",
+        "components/aspra/entry/guest-entry.tsx:68",
+        "components/aspra/entry/guest-entry.tsx:244"
+      ],
+      "px": 13
+    },
+    {
+      "value": "text-[14.5px]",
+      "count": 19,
+      "at": [
+        "components/aspra/app.tsx:231",
+        "components/aspra/app.tsx:320",
+        "components/aspra/entry/booking-flow.tsx:428",
+        "components/aspra/entry/booking-flow.tsx:688",
+        "components/aspra/entry/guest-entry.tsx:265",
+        "components/aspra/stay-sheet.tsx:34",
+        "components/aspra/stay-sheet.tsx:78",
+        "components/aspra/stay-sheet.tsx:80"
+      ],
+      "px": 14.5
+    },
+    {
+      "value": "text-[13.5px]",
+      "count": 16,
+      "at": [
+        "components/aspra/entry/booking-flow.tsx:523",
+        "components/aspra/entry/booking-flow.tsx:602",
+        "components/aspra/entry/booking-flow.tsx:607",
+        "components/aspra/entry/booking-flow.tsx:625",
+        "components/aspra/entry/booking-flow.tsx:652",
+        "components/aspra/entry/booking-flow.tsx:671",
+        "components/aspra/shared.tsx:194",
+        "components/aspra/tabs/concierge.tsx:299"
+      ],
+      "px": 13.5
+    },
+    {
+      "value": "text-[12.5px]",
+      "count": 9,
+      "at": [
+        "components/aspra/app.tsx:232",
+        "components/aspra/entry/booking-flow.tsx:406",
+        "components/aspra/entry/gate.tsx:123",
+        "components/aspra/entry/stay-calendar.tsx:91",
+        "components/aspra/tabs/plan.tsx:198",
+        "components/aspra/tabs/plan.tsx:204",
+        "components/aspra/tabs/today.tsx:286",
+        "components/aspra/tabs/today.tsx:342"
+      ],
+      "px": 12.5
+    },
+    {
+      "value": "text-[17px]",
+      "count": 5,
+      "at": [
+        "components/aspra/entry/gate.tsx:95",
+        "components/aspra/entry/gate.tsx:113",
+        "components/aspra/tabs/concierge.tsx:176",
+        "components/aspra/tabs/plan.tsx:97",
+        "components/aspra/tabs/today.tsx:287"
+      ],
+      "px": 17
+    },
+    {
+      "value": "text-[38px]",
+      "count": 5,
+      "at": [
+        "components/aspra/entry/guest-entry.tsx:215",
+        "components/aspra/tabs/journal.tsx:34",
+        "components/aspra/tabs/plan.tsx:37",
+        "components/aspra/tabs/plan.tsx:61",
+        "components/aspra/tabs/today.tsx:274"
+      ],
+      "px": 38
+    },
+    {
+      "value": "text-[26px]",
+      "count": 5,
+      "at": [
+        "components/aspra/entry/guest-entry.tsx:233",
+        "components/aspra/entry/guest-entry.tsx:251",
+        "components/aspra/tabs/journal.tsx:148",
+        "components/aspra/ui.tsx:418",
+        "components/aspra/ui.tsx:449"
+      ],
+      "px": 26
+    },
+    {
+      "value": "text-[34px]",
+      "count": 3,
+      "at": [
+        "components/aspra/entry/booking-flow.tsx:210",
+        "components/aspra/entry/guest-entry.tsx:138",
+        "components/aspra/tabs/concierge.tsx:194"
+      ],
+      "px": 34
+    },
+    {
+      "value": "text-[22px]",
+      "count": 3,
+      "at": [
+        "components/aspra/entry/booking-flow.tsx:564",
+        "components/aspra/tabs/today.tsx:234",
+        "components/aspra/ui.tsx:32"
+      ],
+      "px": 22
+    },
+    {
+      "value": "text-[36px]",
+      "count": 3,
+      "at": [
+        "components/aspra/entry/booking-flow.tsx:712",
+        "components/aspra/entry/guest-entry.tsx:38",
+        "components/aspra/entry/guest-entry.tsx:90"
+      ],
+      "px": 36
+    },
+    {
+      "value": "text-[12px]",
+      "count": 3,
+      "at": [
+        "components/aspra/entry/stay-calendar.tsx:106",
+        "components/aspra/tabs/plan.tsx:85",
+        "components/aspra/tabs/today.tsx:432"
+      ],
+      "px": 12
+    },
+    {
+      "value": "text-[11px]",
+      "count": 2,
+      "at": [
+        "components/aspra/app.tsx:215",
+        "components/aspra/guest-feedback-panel.tsx:38"
+      ],
+      "px": 11
+    },
+    {
+      "value": "text-[10px]",
+      "count": 2,
+      "at": [
+        "components/aspra/app.tsx:271",
+        "components/aspra/guest-feedback-panel.tsx:36"
+      ],
+      "px": 10
+    },
+    {
+      "value": "text-[18px]",
+      "count": 2,
+      "at": [
+        "components/aspra/entry/booking-flow.tsx:365",
+        "components/aspra/shared.tsx:146"
+      ],
+      "px": 18
+    },
+    {
+      "value": "text-[40px]",
+      "count": 2,
+      "at": [
+        "components/aspra/entry/gate.tsx:49",
+        "components/aspra/entry/gate.tsx:91"
+      ],
+      "px": 40
+    },
+    {
+      "value": "text-[15.5px]",
+      "count": 2,
+      "at": [
+        "components/aspra/entry/guest-entry.tsx:220",
+        "components/aspra/tabs/concierge.tsx:232"
+      ],
+      "px": 15.5
+    },
+    {
+      "value": "text-[30px]",
+      "count": 2,
+      "at": [
+        "components/aspra/tabs/today.tsx:99",
+        "components/aspra/tabs/today.tsx:455"
+      ],
+      "px": 30
+    },
+    {
+      "value": "text-[28px]",
+      "count": 2,
+      "at": [
+        "components/aspra/tabs/today.tsx:473",
+        "components/aspra/tabs/today.tsx:505"
+      ],
+      "px": 28
+    },
+    {
+      "value": "text-[11.5px]",
+      "count": 1,
+      "at": [
+        "components/aspra/app.tsx:261"
+      ],
+      "px": 11.5
+    },
+    {
+      "value": "text-[25px]",
+      "count": 1,
+      "at": [
+        "components/aspra/entry/booking-flow.tsx:422"
+      ],
+      "px": 25
+    },
+    {
+      "value": "text-[56px]",
+      "count": 1,
+      "at": [
+        "components/aspra/entry/gate.tsx:91"
+      ],
+      "px": 56
+    },
+    {
+      "value": "text-[64px]",
+      "count": 1,
+      "at": [
+        "components/aspra/entry/gate.tsx:91"
+      ],
+      "px": 64
+    },
+    {
+      "value": "text-[24px]",
+      "count": 1,
+      "at": [
+        "components/aspra/tabs/journal.tsx:129"
+      ],
+      "px": 24
+    },
+    {
+      "value": "text-[19px]",
+      "count": 1,
+      "at": [
+        "components/aspra/tabs/plan.tsx:88"
+      ],
+      "px": 19
+    }
+  ],
+  "radii": [
+    {
+      "value": "rounded-full",
+      "count": 52,
+      "at": [
+        "components/aspra/app.tsx:173",
+        "components/aspra/app.tsx:202",
+        "components/aspra/app.tsx:215",
+        "components/aspra/app.tsx:217",
+        "components/aspra/app.tsx:227",
+        "components/aspra/app.tsx:229",
+        "components/aspra/app.tsx:250",
+        "components/aspra/app.tsx:268"
+      ]
+    },
+    {
+      "value": "rounded-2xl",
+      "count": 33,
+      "at": [
+        "components/aspra/app.tsx:376",
+        "components/aspra/entry/booking-flow.tsx:214",
+        "components/aspra/entry/booking-flow.tsx:561",
+        "components/aspra/entry/booking-flow.tsx:585",
+        "components/aspra/entry/booking-flow.tsx:598",
+        "components/aspra/entry/booking-flow.tsx:610",
+        "components/aspra/entry/guest-entry.tsx:262",
+        "components/aspra/entry/stay-calendar.tsx:78"
+      ]
+    },
+    {
+      "value": "rounded-xl",
+      "count": 14,
+      "at": [
+        "components/aspra/app.tsx:385",
+        "components/aspra/entry/booking-flow.tsx:493",
+        "components/aspra/entry/booking-flow.tsx:498",
+        "components/aspra/entry/booking-flow.tsx:557",
+        "components/aspra/entry/booking-flow.tsx:580",
+        "components/aspra/entry/guest-entry.tsx:48",
+        "components/aspra/entry/guest-entry.tsx:57",
+        "components/aspra/entry/guest-entry.tsx:61"
+      ]
+    },
+    {
+      "value": "rounded-3xl",
+      "count": 6,
+      "at": [
+        "components/aspra/entry/booking-flow.tsx:399",
+        "components/aspra/entry/gate.tsx:100",
+        "components/aspra/tabs/concierge.tsx:226",
+        "components/aspra/tabs/concierge.tsx:232",
+        "components/aspra/tabs/today.tsx:472",
+        "components/aspra/tabs/today.tsx:501"
+      ]
+    },
+    {
+      "value": "rounded-[28px]",
+      "count": 3,
+      "at": [
+        "components/aspra/app.tsx:189",
+        "components/aspra/tabs/concierge.tsx:171",
+        "components/aspra/ui.tsx:415"
+      ]
+    },
+    {
+      "value": "rounded-[20px]",
+      "count": 2,
+      "at": [
+        "components/aspra/tabs/today.tsx:95",
+        "components/aspra/tabs/today.tsx:453"
+      ]
+    },
+    {
+      "value": "rounded-l-full",
+      "count": 1,
+      "at": [
+        "components/aspra/entry/stay-calendar.tsx:128"
+      ]
+    },
+    {
+      "value": "rounded-r-full",
+      "count": 1,
+      "at": [
+        "components/aspra/entry/stay-calendar.tsx:129"
+      ]
+    },
+    {
+      "value": "rounded-br-lg",
+      "count": 1,
+      "at": [
+        "components/aspra/tabs/concierge.tsx:226"
+      ]
+    },
+    {
+      "value": "rounded-bl-lg",
+      "count": 1,
+      "at": [
+        "components/aspra/tabs/concierge.tsx:232"
+      ]
+    },
+    {
+      "value": "rounded-[26px]",
+      "count": 1,
+      "at": [
+        "components/aspra/tabs/concierge.tsx:306"
+      ]
+    },
+    {
+      "value": "rounded-[5px]",
+      "count": 1,
+      "at": [
+        "components/aspra/ui.tsx:187"
+      ]
+    },
+    {
+      "value": "rounded-t-[28px]",
+      "count": 1,
+      "at": [
+        "components/aspra/ui.tsx:415"
+      ]
+    },
+    {
+      "value": "rounded-[32px]",
+      "count": 1,
+      "at": [
+        "components/aspra/ui.tsx:502"
+      ]
+    }
+  ],
+  "surfaces": [
+    {
+      "key": "glass · rounded-2xl · p-3",
+      "radius": "rounded-2xl",
+      "pad": "p-3",
+      "fill": "glass",
+      "count": 4,
+      "instances": [
+        {
+          "file": "components/aspra/entry/booking-flow.tsx",
+          "line": 561,
+          "cls": "flex gap-4 rounded-2xl glass p-3"
+        },
+        {
+          "file": "components/aspra/entry/stay-calendar.tsx",
+          "line": 78,
+          "cls": "rounded-2xl glass p-3"
+        },
+        {
+          "file": "components/aspra/tabs/plan.tsx",
+          "line": 116,
+          "cls": "flex gap-3 rounded-2xl glass p-3"
+        },
+        {
+          "file": "components/aspra/tabs/plan.tsx",
+          "line": 195,
+          "cls": "flex gap-3 rounded-2xl glass p-3"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-2xl · p-4",
+      "radius": "rounded-2xl",
+      "pad": "p-4",
+      "fill": "glass",
+      "count": 4,
+      "instances": [
+        {
+          "file": "components/aspra/stay-sheet.tsx",
+          "line": 78,
+          "cls": "rounded-2xl glass p-4 text-[14.5px] text-ink-2"
+        },
+        {
+          "file": "components/aspra/tabs/journal.tsx",
+          "line": 65,
+          "cls": "rounded-2xl glass p-4 text-[15px] leading-relaxed"
+        },
+        {
+          "file": "components/aspra/tabs/plan.tsx",
+          "line": 143,
+          "cls": "rounded-2xl glass p-4 text-[14.5px] leading-relaxed text-ink-2"
+        },
+        {
+          "file": "components/aspra/tabs/plan.tsx",
+          "line": 164,
+          "cls": "rounded-2xl glass p-4"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-2xl · no padding",
+      "radius": "rounded-2xl",
+      "pad": "no padding",
+      "fill": "glass",
+      "count": 4,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/journal.tsx",
+          "line": 172,
+          "cls": "divide-y divide-border rounded-2xl glass"
+        },
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 112,
+          "cls": "divide-y divide-border rounded-2xl glass"
+        },
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 209,
+          "cls": "rounded-2xl glass"
+        },
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 329,
+          "cls": "mt-4 divide-y divide-border rounded-2xl glass"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-2xl · px-4",
+      "radius": "rounded-2xl",
+      "pad": "px-4",
+      "fill": "glass",
+      "count": 3,
+      "instances": [
+        {
+          "file": "components/aspra/entry/booking-flow.tsx",
+          "line": 585,
+          "cls": "divide-y divide-border rounded-2xl glass px-4"
+        },
+        {
+          "file": "components/aspra/stay-sheet.tsx",
+          "line": 34,
+          "cls": "divide-y divide-border rounded-2xl glass px-4 text-[14.5px]"
+        },
+        {
+          "file": "components/aspra/stay-sheet.tsx",
+          "line": 80,
+          "cls": "divide-y divide-border rounded-2xl glass px-4 text-[14.5px]"
+        }
+      ]
+    },
+    {
+      "key": "bg-sea-wash · rounded-2xl · p-4",
+      "radius": "rounded-2xl",
+      "pad": "p-4",
+      "fill": "bg-sea-wash",
+      "count": 2,
+      "instances": [
+        {
+          "file": "components/aspra/entry/booking-flow.tsx",
+          "line": 598,
+          "cls": "rounded-2xl bg-sea-wash p-4"
+        },
+        {
+          "file": "components/aspra/entry/booking-flow.tsx",
+          "line": 610,
+          "cls": "rounded-2xl bg-sea-wash p-4 text-[14px] leading-relaxed text-ink"
+        }
+      ]
+    },
+    {
+      "key": "bg-obsidian · rounded-2xl · p-4",
+      "radius": "rounded-2xl",
+      "pad": "p-4",
+      "fill": "bg-obsidian",
+      "count": 2,
+      "instances": [
+        {
+          "file": "components/aspra/entry/guest-entry.tsx",
+          "line": 262,
+          "cls": "mt-9 flex w-full items-center gap-4 rounded-2xl bg-obsidian p-4 text-left text-white"
+        },
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 233,
+          "cls": "w-[150px] shrink-0 rounded-2xl bg-obsidian p-4 text-white"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-xl · px-4 py-3",
+      "radius": "rounded-xl",
+      "pad": "px-4 py-3",
+      "fill": "glass",
+      "count": 2,
+      "instances": [
+        {
+          "file": "components/aspra/shared.tsx",
+          "line": 279,
+          "cls": "w-full resize-none rounded-xl glass px-4 py-3 text-[15px] text-ink placeholder:text-ink-3 focus:border-sea focus:outline-none"
+        },
+        {
+          "file": "components/aspra/tabs/journal.tsx",
+          "line": 92,
+          "cls": "w-full resize-none rounded-xl glass px-4 py-3 text-[15px] placeholder:text-ink-3 focus:border-sea focus:outline-none"
+        }
+      ]
+    },
+    {
+      "key": "glass-smoke · rounded-[20px] · p-4",
+      "radius": "rounded-[20px]",
+      "pad": "p-4",
+      "fill": "glass-smoke",
+      "count": 2,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 95,
+          "cls": "on-dark glass-smoke absolute inset-x-3 bottom-3 rounded-[20px] p-4 text-white md:right-auto md:max-w-[440px]"
+        },
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 453,
+          "cls": "on-dark glass-smoke absolute inset-x-3 bottom-3 rounded-[20px] p-4 text-white md:right-auto md:max-w-[440px]"
+        }
+      ]
+    },
+    {
+      "key": "bg-obsidian/85 · rounded-2xl · pl-4 pr-1.5 py-1.5",
+      "radius": "rounded-2xl",
+      "pad": "pl-4 pr-1.5 py-1.5",
+      "fill": "bg-obsidian/85",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/app.tsx",
+          "line": 376,
+          "cls": "pointer-events-auto flex max-w-[420px] items-center gap-2 rounded-2xl border border-white/15 bg-obsidian/85 py-1.5 pl-4 pr-1.5 text-[14px] text-white backdrop-blur-xl"
+        }
+      ]
+    },
+    {
+      "key": "bg-sea-wash · rounded-2xl · px-4 py-3",
+      "radius": "rounded-2xl",
+      "pad": "px-4 py-3",
+      "fill": "bg-sea-wash",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/entry/booking-flow.tsx",
+          "line": 214,
+          "cls": "mb-6 flex items-center justify-between gap-3 rounded-2xl bg-sea-wash px-4 py-3 text-[14px] text-ink"
+        }
+      ]
+    },
+    {
+      "key": "bg-white/70 · rounded-3xl · no padding",
+      "radius": "rounded-3xl",
+      "pad": "no padding",
+      "fill": "bg-white/70",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/entry/booking-flow.tsx",
+          "line": 399,
+          "cls": "block w-full overflow-hidden rounded-3xl bg-white/70 text-left ring-1 backdrop-blur-xl transition-shadow"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-xl · px-4",
+      "radius": "rounded-xl",
+      "pad": "px-4",
+      "fill": "glass",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/entry/booking-flow.tsx",
+          "line": 498,
+          "cls": "mt-6 divide-y divide-border rounded-xl glass px-4"
+        }
+      ]
+    },
+    {
+      "key": "glass-dark · rounded-3xl · no padding",
+      "radius": "rounded-3xl",
+      "pad": "no padding",
+      "fill": "glass-dark",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/entry/gate.tsx",
+          "line": 100,
+          "cls": "glass-dark divide-y divide-white/15 overflow-hidden rounded-3xl"
+        }
+      ]
+    },
+    {
+      "key": "bg-sea-wash · rounded-l-full · no padding",
+      "radius": "rounded-l-full",
+      "pad": "no padding",
+      "fill": "bg-sea-wash",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/entry/stay-calendar.tsx",
+          "line": 128,
+          "cls": "rounded-l-full bg-sea-wash"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-xl · px-4 py-2",
+      "radius": "rounded-xl",
+      "pad": "px-4 py-2",
+      "fill": "glass",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/shared.tsx",
+          "line": 133,
+          "cls": "flex items-center justify-between rounded-xl glass px-4 py-2"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-2xl · px-4 py-3",
+      "radius": "rounded-2xl",
+      "pad": "px-4 py-3",
+      "fill": "glass",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/shared.tsx",
+          "line": 190,
+          "cls": "mb-7 flex min-h-14 w-full items-center justify-between gap-3 rounded-2xl glass px-4 py-3 text-left"
+        }
+      ]
+    },
+    {
+      "key": "bg-white/45 · — · pb-3 pt-[max(env(safe-area-inset-top),12px)] px-5",
+      "radius": "—",
+      "pad": "pb-3 pt-[max(env(safe-area-inset-top),12px)] px-5",
+      "fill": "bg-white/45",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/concierge.tsx",
+          "line": 171,
+          "cls": "sticky top-0 z-[var(--z-nav)] flex items-center gap-3 border-b border-white/70 bg-white/45 px-5 pb-3 pt-[max(env(safe-area-inset-top),12px)] backdrop-blur-xl lg:rounded-[28px] lg:border lg:border-white/80 lg:py-3"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-3xl · px-4 py-3",
+      "radius": "rounded-3xl",
+      "pad": "px-4 py-3",
+      "fill": "glass",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/concierge.tsx",
+          "line": 232,
+          "cls": "glass whitespace-pre-line rounded-3xl rounded-bl-lg px-4 py-3 text-[15.5px] leading-relaxed text-ink"
+        }
+      ]
+    },
+    {
+      "key": "glass-strong · rounded-[26px] · p-1.5 pl-4",
+      "radius": "rounded-[26px]",
+      "pad": "p-1.5 pl-4",
+      "fill": "glass-strong",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/concierge.tsx",
+          "line": 306,
+          "cls": "glass-strong flex items-end gap-2 rounded-[26px] p-1.5 pl-4 shadow-[0_6px_8px_-4px_rgb(10_12_17/0.14)] focus-within:border-sea"
+        }
+      ]
+    },
+    {
+      "key": "border-dashed · rounded-2xl · p-5",
+      "radius": "rounded-2xl",
+      "pad": "p-5",
+      "fill": "border-dashed",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/journal.tsx",
+          "line": 47,
+          "cls": "rounded-2xl border border-dashed border-ink/25 p-5 md:max-w-[560px]"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-2xl · p-5",
+      "radius": "rounded-2xl",
+      "pad": "p-5",
+      "fill": "glass",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/journal.tsx",
+          "line": 146,
+          "cls": "rounded-2xl glass p-5"
+        }
+      ]
+    },
+    {
+      "key": "bg-sea-wash · rounded-2xl · p-5",
+      "radius": "rounded-2xl",
+      "pad": "p-5",
+      "fill": "bg-sea-wash",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/journal.tsx",
+          "line": 213,
+          "cls": "flex items-start gap-4 rounded-2xl bg-sea-wash p-5"
+        }
+      ]
+    },
+    {
+      "key": "bg-sea-wash · rounded-2xl · no padding",
+      "radius": "rounded-2xl",
+      "pad": "no padding",
+      "fill": "bg-sea-wash",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 151,
+          "cls": "overflow-hidden rounded-2xl bg-sea-wash"
+        }
+      ]
+    },
+    {
+      "key": "border-dashed · rounded-2xl · p-4",
+      "radius": "rounded-2xl",
+      "pad": "p-4",
+      "fill": "border-dashed",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 179,
+          "cls": "flex w-full items-center gap-4 rounded-2xl border border-dashed border-ink/25 p-4 text-left"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-xl · p-2 pr-4",
+      "radius": "rounded-xl",
+      "pad": "p-2 pr-4",
+      "fill": "glass",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 191,
+          "cls": "flex items-center gap-3 rounded-xl glass p-2 pr-4"
+        }
+      ]
+    },
+    {
+      "key": "glass · rounded-xl · py-3",
+      "radius": "rounded-xl",
+      "pad": "py-3",
+      "fill": "glass",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 285,
+          "cls": "rounded-xl glass py-3"
+        }
+      ]
+    },
+    {
+      "key": "bg-obsidian · rounded-3xl · p-5",
+      "radius": "rounded-3xl",
+      "pad": "p-5",
+      "fill": "bg-obsidian",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/tabs/today.tsx",
+          "line": 472,
+          "cls": "on-dark rounded-3xl bg-obsidian p-5 text-white"
+        }
+      ]
+    },
+    {
+      "key": "glass-strong · rounded-t-[28px] · no padding",
+      "radius": "rounded-t-[28px]",
+      "pad": "no padding",
+      "fill": "glass-strong",
+      "count": 1,
+      "instances": [
+        {
+          "file": "components/aspra/ui.tsx",
+          "line": 415,
+          "cls": "glass-strong relative flex max-h-[90svh] w-full max-w-[440px] flex-col rounded-t-[28px] md:max-h-[84svh] md:max-w-[560px] md:rounded-[28px]"
+        }
+      ]
+    }
+  ],
+  "rawButtons": [
+    {
+      "file": "components/aspra/app.tsx",
+      "line": 170,
+      "label": "Your profile and preferences",
+      "base": "grid size-11 place-items-center rounded-full bg-sea text-[14px] font-semibold uppercase text-white",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "grid size-11 place-items-center rounded-full bg-sea text-[14px] font-semibold uppercase text-white",
+          "fill": "bg-sea",
+          "text": "text-white",
+          "outline": "none",
+          "height": 44
+        }
+      ],
+      "disabled": false,
+      "cls": "grid size-11 place-items-center rounded-full bg-sea text-[14px] font-semibold uppercase text-white",
+      "kind": "Icon button",
+      "match": {
+        "component": "IconButton",
+        "props": {},
+        "exact": true,
+        "notes": [
+          "its bg-sea fill would be passed in by the caller"
+        ]
+      }
+    },
+    {
+      "file": "components/aspra/app.tsx",
+      "line": 198,
+      "label": "{t.label}",
+      "base": "flex h-12 w-full items-center gap-3 rounded-full px-4 text-[15px] font-medium transition-colors",
+      "states": [
+        {
+          "when": "active and dark",
+          "cls": "bg-white text-obsidian"
+        },
+        {
+          "when": "active and not dark",
+          "cls": "bg-ink text-white"
+        },
+        {
+          "when": "not active and dark",
+          "cls": "text-white/75 hover:bg-white/10"
+        },
+        {
+          "when": "not active and not dark",
+          "cls": "text-ink-2 hover:bg-ink/5"
+        }
+      ],
+      "looks": [
+        {
+          "when": "active and dark",
+          "cls": "flex h-12 w-full items-center gap-3 rounded-full px-4 text-[15px] font-medium transition-colors bg-white text-obsidian",
+          "fill": "bg-white",
+          "text": "text-obsidian",
+          "outline": "none",
+          "height": 48
+        },
+        {
+          "when": "active and not dark",
+          "cls": "flex h-12 w-full items-center gap-3 rounded-full px-4 text-[15px] font-medium transition-colors bg-ink text-white",
+          "fill": "bg-ink",
+          "text": "text-white",
+          "outline": "none",
+          "height": 48
+        },
+        {
+          "when": "not active and dark",
+          "cls": "flex h-12 w-full items-center gap-3 rounded-full px-4 text-[15px] font-medium transition-colors text-white/75 hover:bg-white/10",
+          "fill": "none",
+          "text": "text-white/75",
+          "outline": "none",
+          "height": 48
+        },
+        {
+          "when": "not active and not dark",
+          "cls": "flex h-12 w-full items-center gap-3 rounded-full px-4 text-[15px] font-medium transition-colors text-ink-2 hover:bg-ink/5",
+          "fill": "none",
+          "text": "text-ink-2",
+          "outline": "none",
+          "height": 48
+        }
+      ],
+      "disabled": false,
+      "cls": "flex h-12 w-full items-center gap-3 rounded-full px-4 text-[15px] font-medium transition-colors bg-white text-obsidian bg-ink text-white text-white/75 hover:bg-white/10 text-ink-2 hover:bg-ink/5",
+      "kind": "Other",
+      "match": null
+    },
+    {
+      "file": "components/aspra/app.tsx",
+      "line": 225,
+      "label": "Preferences",
+      "base": "flex items-center gap-3 rounded-full p-1.5 pr-4 text-left transition-colors",
+      "states": [
+        {
+          "when": "dark",
+          "cls": "hover:bg-white/10"
+        },
+        {
+          "when": "not dark",
+          "cls": "hover:bg-ink/5"
+        }
+      ],
+      "looks": [
+        {
+          "when": "dark",
+          "cls": "flex items-center gap-3 rounded-full p-1.5 pr-4 text-left transition-colors hover:bg-white/10",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "none",
+          "height": 0
+        },
+        {
+          "when": "not dark",
+          "cls": "flex items-center gap-3 rounded-full p-1.5 pr-4 text-left transition-colors hover:bg-ink/5",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "none",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "flex items-center gap-3 rounded-full p-1.5 pr-4 text-left transition-colors hover:bg-white/10 hover:bg-ink/5",
+      "kind": "Other",
+      "match": null
+    },
+    {
+      "file": "components/aspra/app.tsx",
+      "line": 256,
+      "label": "{plan.length}",
+      "base": "relative flex h-[60px] w-full flex-col items-center justify-center gap-0.5 pb-1.5 text-[11.5px] font-medium transition-colors",
+      "states": [
+        {
+          "when": "dark and active",
+          "cls": "text-white"
+        },
+        {
+          "when": "dark and not active",
+          "cls": "text-white/60"
+        },
+        {
+          "when": "not dark and active",
+          "cls": "text-ink"
+        },
+        {
+          "when": "not dark and not active",
+          "cls": "text-ink-3"
+        }
+      ],
+      "looks": [
+        {
+          "when": "dark and active",
+          "cls": "relative flex h-[60px] w-full flex-col items-center justify-center gap-0.5 pb-1.5 text-[11.5px] font-medium transition-colors text-white",
+          "fill": "none",
+          "text": "text-white",
+          "outline": "none",
+          "height": 60
+        },
+        {
+          "when": "dark and not active",
+          "cls": "relative flex h-[60px] w-full flex-col items-center justify-center gap-0.5 pb-1.5 text-[11.5px] font-medium transition-colors text-white/60",
+          "fill": "none",
+          "text": "text-white/60",
+          "outline": "none",
+          "height": 60
+        },
+        {
+          "when": "not dark and active",
+          "cls": "relative flex h-[60px] w-full flex-col items-center justify-center gap-0.5 pb-1.5 text-[11.5px] font-medium transition-colors text-ink",
+          "fill": "none",
+          "text": "text-ink",
+          "outline": "none",
+          "height": 60
+        },
+        {
+          "when": "not dark and not active",
+          "cls": "relative flex h-[60px] w-full flex-col items-center justify-center gap-0.5 pb-1.5 text-[11.5px] font-medium transition-colors text-ink-3",
+          "fill": "none",
+          "text": "text-ink-3",
+          "outline": "none",
+          "height": 60
+        }
+      ],
+      "disabled": false,
+      "cls": "relative flex h-[60px] w-full flex-col items-center justify-center gap-0.5 pb-1.5 text-[11.5px] font-medium transition-colors text-white text-white/60 text-ink text-ink-3",
+      "kind": "Other",
+      "match": null
+    },
+    {
+      "file": "components/aspra/app.tsx",
+      "line": 380,
+      "label": "{toast.action.label}",
+      "base": "h-11 shrink-0 rounded-xl px-3 text-[14px] font-semibold text-sulphur hover:bg-white/10",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "h-11 shrink-0 rounded-xl px-3 text-[14px] font-semibold text-sulphur hover:bg-white/10",
+          "fill": "none",
+          "text": "text-sulphur",
+          "outline": "none",
+          "height": 44
+        }
+      ],
+      "disabled": false,
+      "cls": "h-11 shrink-0 rounded-xl px-3 text-[14px] font-semibold text-sulphur hover:bg-white/10",
+      "kind": "Other",
+      "match": null
+    },
+    {
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 394,
+      "label": "/ night m² Up to",
+      "base": "block w-full overflow-hidden rounded-3xl bg-white/70 text-left ring-1 backdrop-blur-xl transition-shadow",
+      "states": [
+        {
+          "when": "on",
+          "cls": "ring-2 ring-sea"
+        },
+        {
+          "when": "not on",
+          "cls": "ring-white/80 hover:ring-ink/20"
+        }
+      ],
+      "looks": [
+        {
+          "when": "on",
+          "cls": "block w-full overflow-hidden rounded-3xl bg-white/70 text-left ring-1 backdrop-blur-xl transition-shadow ring-2 ring-sea",
+          "fill": "bg-white/70",
+          "text": "inherit",
+          "outline": "ring-1 ring-2 ring-sea",
+          "height": 0
+        },
+        {
+          "when": "not on",
+          "cls": "block w-full overflow-hidden rounded-3xl bg-white/70 text-left ring-1 backdrop-blur-xl transition-shadow ring-white/80 hover:ring-ink/20",
+          "fill": "bg-white/70",
+          "text": "inherit",
+          "outline": "ring-1 ring-white/80",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "block w-full overflow-hidden rounded-3xl bg-white/70 text-left ring-1 backdrop-blur-xl transition-shadow ring-2 ring-sea ring-white/80 hover:ring-ink/20",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 455,
+      "label": "Box icon",
+      "base": "pointer-events-auto absolute bottom-3 left-3 inline-flex h-10 items-center gap-2 rounded-full glass-smoke px-4 text-[14px] font-medium text-white hover:bg-obsidian/70",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "pointer-events-auto absolute bottom-3 left-3 inline-flex h-10 items-center gap-2 rounded-full glass-smoke px-4 text-[14px] font-medium text-white hover:bg-obsidian/70",
+          "fill": "glass-smoke",
+          "text": "text-white",
+          "outline": "none",
+          "height": 40
+        }
+      ],
+      "disabled": false,
+      "cls": "pointer-events-auto absolute bottom-3 left-3 inline-flex h-10 items-center gap-2 rounded-full glass-smoke px-4 text-[14px] font-medium text-white hover:bg-obsidian/70",
+      "kind": "Pill button",
+      "match": {
+        "component": "Button",
+        "props": {
+          "size": "sm"
+        },
+        "exact": false,
+        "notes": [
+          "40px tall here, 36px as size sm",
+          "no variant with glass-smoke and text-white"
+        ]
+      }
+    },
+    {
+      "file": "components/aspra/entry/gate.tsx",
+      "line": 16,
+      "label": "Skip intro",
+      "base": "on-dark fixed inset-0 z-[var(--z-toast)] grid place-items-center bg-obsidian text-white",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "on-dark fixed inset-0 z-[var(--z-toast)] grid place-items-center bg-obsidian text-white",
+          "fill": "bg-obsidian",
+          "text": "text-white",
+          "outline": "none",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "on-dark fixed inset-0 z-[var(--z-toast)] grid place-items-center bg-obsidian text-white",
+      "kind": "Other",
+      "match": null
+    },
+    {
+      "file": "components/aspra/entry/gate.tsx",
+      "line": 108,
+      "label": "{p.title}",
+      "base": "flex w-full items-center gap-4 px-5 py-4 text-left transition-colors hover:bg-white/10",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "flex w-full items-center gap-4 px-5 py-4 text-left transition-colors hover:bg-white/10",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "none",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "flex w-full items-center gap-4 px-5 py-4 text-left transition-colors hover:bg-white/10",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 260,
+      "label": "Book again and the Malagousia you liked ",
+      "base": "mt-9 flex w-full items-center gap-4 rounded-2xl bg-obsidian p-4 text-left text-white",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "mt-9 flex w-full items-center gap-4 rounded-2xl bg-obsidian p-4 text-left text-white",
+          "fill": "bg-obsidian",
+          "text": "text-white",
+          "outline": "none",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "mt-9 flex w-full items-center gap-4 rounded-2xl bg-obsidian p-4 text-left text-white",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/entry/stay-calendar.tsx",
+      "line": 80,
+      "label": "Previous month",
+      "base": "grid size-11 place-items-center rounded-full hover:bg-ink/5 disabled:opacity-30",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "grid size-11 place-items-center rounded-full hover:bg-ink/5 disabled:opacity-30",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "none",
+          "height": 44
+        }
+      ],
+      "disabled": true,
+      "cls": "grid size-11 place-items-center rounded-full hover:bg-ink/5 disabled:opacity-30",
+      "kind": "Icon button",
+      "match": {
+        "component": "IconButton",
+        "props": {},
+        "exact": true,
+        "notes": []
+      }
+    },
+    {
+      "file": "components/aspra/entry/stay-calendar.tsx",
+      "line": 95,
+      "label": "Next month",
+      "base": "grid size-11 place-items-center rounded-full hover:bg-ink/5 disabled:opacity-30",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "grid size-11 place-items-center rounded-full hover:bg-ink/5 disabled:opacity-30",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "none",
+          "height": 44
+        }
+      ],
+      "disabled": true,
+      "cls": "grid size-11 place-items-center rounded-full hover:bg-ink/5 disabled:opacity-30",
+      "kind": "Icon button",
+      "match": {
+        "component": "IconButton",
+        "props": {},
+        "exact": true,
+        "notes": []
+      }
+    },
+    {
+      "file": "components/aspra/entry/stay-calendar.tsx",
+      "line": 132,
+      "label": "(no text)",
+      "base": "mx-auto grid h-11 w-full max-w-11 place-items-center rounded-full text-[15px] tabular-nums transition-colors",
+      "states": [
+        {
+          "when": "isIn || isOut",
+          "cls": "bg-sea font-semibold text-white"
+        },
+        {
+          "when": "not (isIn || isOut) and enabled",
+          "cls": "text-ink hover:bg-ink/10"
+        },
+        {
+          "when": "not (isIn || isOut) and not enabled",
+          "cls": "text-ink-3/70"
+        },
+        {
+          "when": "sold and !isOut",
+          "cls": "line-through"
+        }
+      ],
+      "looks": [
+        {
+          "when": "isIn || isOut",
+          "cls": "mx-auto grid h-11 w-full max-w-11 place-items-center rounded-full text-[15px] tabular-nums transition-colors bg-sea font-semibold text-white",
+          "fill": "bg-sea",
+          "text": "text-white",
+          "outline": "none",
+          "height": 44
+        },
+        {
+          "when": "not (isIn || isOut) and enabled",
+          "cls": "mx-auto grid h-11 w-full max-w-11 place-items-center rounded-full text-[15px] tabular-nums transition-colors text-ink hover:bg-ink/10",
+          "fill": "none",
+          "text": "text-ink",
+          "outline": "none",
+          "height": 44
+        },
+        {
+          "when": "not (isIn || isOut) and not enabled",
+          "cls": "mx-auto grid h-11 w-full max-w-11 place-items-center rounded-full text-[15px] tabular-nums transition-colors text-ink-3/70",
+          "fill": "none",
+          "text": "text-ink-3/70",
+          "outline": "none",
+          "height": 44
+        },
+        {
+          "when": "sold and !isOut",
+          "cls": "mx-auto grid h-11 w-full max-w-11 place-items-center rounded-full text-[15px] tabular-nums transition-colors line-through",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "none",
+          "height": 44
+        }
+      ],
+      "disabled": true,
+      "cls": "mx-auto grid h-11 w-full max-w-11 place-items-center rounded-full text-[15px] tabular-nums transition-colors bg-sea font-semibold text-white text-ink hover:bg-ink/10 text-ink-3/70 line-through",
+      "kind": "Icon button",
+      "match": {
+        "component": "IconButton",
+        "props": {},
+        "exact": true,
+        "notes": [
+          "its bg-sea fill would be passed in by the caller"
+        ]
+      }
+    },
+    {
+      "file": "components/aspra/shared.tsx",
+      "line": 186,
+      "label": "More choices Linen, scent, flowers, curt",
+      "base": "mb-7 flex min-h-14 w-full items-center justify-between gap-3 rounded-2xl glass px-4 py-3 text-left",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "mb-7 flex min-h-14 w-full items-center justify-between gap-3 rounded-2xl glass px-4 py-3 text-left",
+          "fill": "glass",
+          "text": "inherit",
+          "outline": "none",
+          "height": 56
+        }
+      ],
+      "disabled": false,
+      "cls": "mb-7 flex min-h-14 w-full items-center justify-between gap-3 rounded-2xl glass px-4 py-3 text-left",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/tabs/concierge.tsx",
+      "line": 203,
+      "label": "{p}",
+      "base": "glass flex min-h-12 w-full items-center justify-between gap-3 rounded-2xl px-4 py-3 text-left text-[15px] transition-colors hover:bg-white/85",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "glass flex min-h-12 w-full items-center justify-between gap-3 rounded-2xl px-4 py-3 text-left text-[15px] transition-colors hover:bg-white/85",
+          "fill": "glass",
+          "text": "inherit",
+          "outline": "none",
+          "height": 48
+        }
+      ],
+      "disabled": false,
+      "cls": "glass flex min-h-12 w-full items-center justify-between gap-3 rounded-2xl px-4 py-3 text-left text-[15px] transition-colors hover:bg-white/85",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/tabs/concierge.tsx",
+      "line": 251,
+      "label": "Check icon",
+      "base": "inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[14px] font-medium transition-colors",
+      "states": [
+        {
+          "when": "done",
+          "cls": "bg-ink/5 text-ink-2"
+        },
+        {
+          "when": "not done",
+          "cls": "bg-ink text-white hover:bg-ink-2"
+        }
+      ],
+      "looks": [
+        {
+          "when": "done",
+          "cls": "inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[14px] font-medium transition-colors bg-ink/5 text-ink-2",
+          "fill": "bg-ink/5",
+          "text": "text-ink-2",
+          "outline": "none",
+          "height": 44
+        },
+        {
+          "when": "not done",
+          "cls": "inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[14px] font-medium transition-colors bg-ink text-white hover:bg-ink-2",
+          "fill": "bg-ink",
+          "text": "text-white",
+          "outline": "none",
+          "height": 44
+        }
+      ],
+      "disabled": true,
+      "cls": "inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[14px] font-medium transition-colors bg-ink/5 text-ink-2 bg-ink text-white hover:bg-ink-2",
+      "kind": "Pill button",
+      "match": {
+        "component": "Button",
+        "props": {
+          "size": "md",
+          "variant": "primary"
+        },
+        "exact": true,
+        "notes": [
+          "44px tall here, 48px as size md"
+        ]
+      }
+    },
+    {
+      "file": "components/aspra/tabs/concierge.tsx",
+      "line": 294,
+      "label": "{p}",
+      "base": "glass-strong h-10 shrink-0 rounded-full px-3.5 text-[13.5px] text-ink-2 disabled:opacity-40",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "glass-strong h-10 shrink-0 rounded-full px-3.5 text-[13.5px] text-ink-2 disabled:opacity-40",
+          "fill": "glass-strong",
+          "text": "text-ink-2",
+          "outline": "none",
+          "height": 40
+        }
+      ],
+      "disabled": true,
+      "cls": "glass-strong h-10 shrink-0 rounded-full px-3.5 text-[13.5px] text-ink-2 disabled:opacity-40",
+      "kind": "Pill button",
+      "match": {
+        "component": "Button",
+        "props": {
+          "size": "sm"
+        },
+        "exact": false,
+        "notes": [
+          "40px tall here, 36px as size sm",
+          "no variant with glass-strong and text-ink-2"
+        ]
+      }
+    },
+    {
+      "file": "components/aspra/tabs/concierge.tsx",
+      "line": 324,
+      "label": "Send",
+      "base": "grid size-10 shrink-0 place-items-center rounded-full bg-ink text-white transition-opacity disabled:opacity-35",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "grid size-10 shrink-0 place-items-center rounded-full bg-ink text-white transition-opacity disabled:opacity-35",
+          "fill": "bg-ink",
+          "text": "text-white",
+          "outline": "none",
+          "height": 40
+        }
+      ],
+      "disabled": true,
+      "cls": "grid size-10 shrink-0 place-items-center rounded-full bg-ink text-white transition-opacity disabled:opacity-35",
+      "kind": "Icon button",
+      "match": {
+        "component": "IconButton",
+        "props": {},
+        "exact": true,
+        "notes": [
+          "its bg-ink fill would be passed in by the caller"
+        ]
+      }
+    },
+    {
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 177,
+      "label": "{item.name}",
+      "base": "flex w-full items-center gap-4 p-4 text-left",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "flex w-full items-center gap-4 p-4 text-left",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "none",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "flex w-full items-center gap-4 p-4 text-left",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 74,
+      "label": "(no text)",
+      "base": "flex h-[68px] w-[56px] shrink-0 flex-col items-center justify-center rounded-xl border transition-colors",
+      "states": [
+        {
+          "when": "active",
+          "cls": "border-ink bg-ink text-white"
+        },
+        {
+          "when": "not active and i === todayIndex",
+          "cls": "border-sea bg-white/70 text-ink backdrop-blur-md"
+        },
+        {
+          "when": "not active and not (i === todayIndex)",
+          "cls": "border-white/80 bg-white/60 text-ink backdrop-blur-md"
+        }
+      ],
+      "looks": [
+        {
+          "when": "active",
+          "cls": "flex h-[68px] w-[56px] shrink-0 flex-col items-center justify-center rounded-xl border transition-colors border-ink bg-ink text-white",
+          "fill": "bg-ink",
+          "text": "text-white",
+          "outline": "border border-ink",
+          "height": 68
+        },
+        {
+          "when": "not active and i === todayIndex",
+          "cls": "flex h-[68px] w-[56px] shrink-0 flex-col items-center justify-center rounded-xl border transition-colors border-sea bg-white/70 text-ink backdrop-blur-md",
+          "fill": "bg-white/70",
+          "text": "text-ink",
+          "outline": "border border-sea",
+          "height": 68
+        },
+        {
+          "when": "not active and not (i === todayIndex)",
+          "cls": "flex h-[68px] w-[56px] shrink-0 flex-col items-center justify-center rounded-xl border transition-colors border-white/80 bg-white/60 text-ink backdrop-blur-md",
+          "fill": "bg-white/60",
+          "text": "text-ink",
+          "outline": "border border-white/80",
+          "height": 68
+        }
+      ],
+      "disabled": false,
+      "cls": "flex h-[68px] w-[56px] shrink-0 flex-col items-center justify-center rounded-xl border transition-colors border-ink bg-ink text-white border-sea bg-white/70 text-ink backdrop-blur-md border-white/80 bg-white/60 text-ink backdrop-blur-md",
+      "kind": "Other",
+      "match": null
+    },
+    {
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 163,
+      "label": "Walk through your suite in 3D",
+      "base": "flex w-full items-center gap-3 border-t border-sea/15 px-4 py-3.5 text-left text-[15px] font-medium text-sea-deep hover:bg-sea/5",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "flex w-full items-center gap-3 border-t border-sea/15 px-4 py-3.5 text-left text-[15px] font-medium text-sea-deep hover:bg-sea/5",
+          "fill": "none",
+          "text": "text-sea-deep",
+          "outline": "border-sea/15",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "flex w-full items-center gap-3 border-t border-sea/15 px-4 py-3.5 text-left text-[15px] font-medium text-sea-deep hover:bg-sea/5",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 177,
+      "label": "Nothing yet. The boat to Kleftiko fills ",
+      "base": "flex w-full items-center gap-4 rounded-2xl border border-dashed border-ink/25 p-4 text-left",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "flex w-full items-center gap-4 rounded-2xl border border-dashed border-ink/25 p-4 text-left",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "border border-dashed border-ink/25",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "flex w-full items-center gap-4 rounded-2xl border border-dashed border-ink/25 p-4 text-left",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 210,
+      "label": "What to bring to Milos in",
+      "base": "flex w-full items-center justify-between gap-4 p-4 text-left",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "flex w-full items-center justify-between gap-4 p-4 text-left",
+          "fill": "none",
+          "text": "inherit",
+          "outline": "none",
+          "height": 0
+        }
+      ],
+      "disabled": false,
+      "cls": "flex w-full items-center justify-between gap-4 p-4 text-left",
+      "kind": "List row",
+      "match": null
+    },
+    {
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 318,
+      "label": "{q.label}",
+      "base": "flex h-12 shrink-0 items-center gap-2 rounded-full bg-obsidian px-4 text-[14px] font-medium text-white active:scale-[0.98]",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "flex h-12 shrink-0 items-center gap-2 rounded-full bg-obsidian px-4 text-[14px] font-medium text-white active:scale-[0.98]",
+          "fill": "bg-obsidian",
+          "text": "text-white",
+          "outline": "none",
+          "height": 48
+        }
+      ],
+      "disabled": false,
+      "cls": "flex h-12 shrink-0 items-center gap-2 rounded-full bg-obsidian px-4 text-[14px] font-medium text-white active:scale-[0.98]",
+      "kind": "Pill button",
+      "match": {
+        "component": "Button",
+        "props": {
+          "size": "md",
+          "variant": "dark"
+        },
+        "exact": true,
+        "notes": []
+      }
+    },
+    {
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 334,
+      "label": "Cancel",
+      "base": "-my-2 h-11 shrink-0 px-2 text-[13.5px] font-medium text-sea-deep underline-offset-4 hover:underline",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "-my-2 h-11 shrink-0 px-2 text-[13.5px] font-medium text-sea-deep underline-offset-4 hover:underline",
+          "fill": "none",
+          "text": "text-sea-deep",
+          "outline": "none",
+          "height": 44
+        }
+      ],
+      "disabled": false,
+      "cls": "-my-2 h-11 shrink-0 px-2 text-[13.5px] font-medium text-sea-deep underline-offset-4 hover:underline",
+      "kind": "Text link",
+      "match": {
+        "component": "TextLink",
+        "props": {},
+        "exact": true,
+        "notes": []
+      }
+    },
+    {
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 508,
+      "label": "{p}",
+      "base": "min-h-11 rounded-full border border-white/25 bg-white/15 px-4 text-left text-[14px] backdrop-blur-md transition-colors hover:bg-white/25",
+      "states": [],
+      "looks": [
+        {
+          "when": null,
+          "cls": "min-h-11 rounded-full border border-white/25 bg-white/15 px-4 text-left text-[14px] backdrop-blur-md transition-colors hover:bg-white/25",
+          "fill": "bg-white/15",
+          "text": "inherit",
+          "outline": "border border-white/25",
+          "height": 44
+        }
+      ],
+      "disabled": false,
+      "cls": "min-h-11 rounded-full border border-white/25 bg-white/15 px-4 text-left text-[14px] backdrop-blur-md transition-colors hover:bg-white/25",
+      "kind": "Pill button",
+      "match": {
+        "component": "Button",
+        "props": {
+          "size": "md"
+        },
+        "exact": false,
+        "notes": [
+          "44px tall here, 48px as size md",
+          "no variant with bg-white/15 and inherit"
+        ]
+      }
+    }
+  ],
+  "libraryButtons": [
+    {
+      "name": "Button",
+      "file": "components/aspra/ui.tsx",
+      "line": 45,
+      "base": "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-[background-color,color,transform,opacity] duration-200 active:scale-[0.98] disabled:opacity-45 disabled:active:scale-100",
+      "props": {
+        "size": {
+          "lg": {
+            "cls": "h-14 px-7 text-[16px]",
+            "fill": "none",
+            "text": "inherit",
+            "outline": "none",
+            "height": 56
+          },
+          "md": {
+            "cls": "h-12 px-5 text-[15px]",
+            "fill": "none",
+            "text": "inherit",
+            "outline": "none",
+            "height": 48
+          },
+          "sm": {
+            "cls": "h-9 px-4 text-[14px]",
+            "fill": "none",
+            "text": "inherit",
+            "outline": "none",
+            "height": 36
+          }
+        },
+        "variant": {
+          "primary": {
+            "cls": "bg-ink text-white hover:bg-obsidian-3",
+            "fill": "bg-ink",
+            "text": "text-white",
+            "outline": "none",
+            "height": 0
+          },
+          "dark": {
+            "cls": "bg-obsidian text-white hover:bg-obsidian-2",
+            "fill": "bg-obsidian",
+            "text": "text-white",
+            "outline": "none",
+            "height": 0
+          },
+          "light": {
+            "cls": "bg-white text-ink hover:bg-chalk-2",
+            "fill": "bg-white",
+            "text": "text-ink",
+            "outline": "none",
+            "height": 0
+          },
+          "sulphur": {
+            "cls": "bg-sea text-white hover:bg-sea-deep",
+            "fill": "bg-sea",
+            "text": "text-white",
+            "outline": "none",
+            "height": 0
+          },
+          "outline": {
+            "cls": "border border-white/80 bg-white/55 text-ink backdrop-blur-md hover:bg-white/85",
+            "fill": "bg-white/55",
+            "text": "text-ink",
+            "outline": "border border-white/80",
+            "height": 0
+          },
+          "ghost": {
+            "cls": "bg-transparent text-ink hover:bg-ink/5",
+            "fill": "bg-transparent",
+            "text": "text-ink",
+            "outline": "none",
+            "height": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/ui.tsx",
+      "line": 71,
+      "base": "grid size-11 shrink-0 place-items-center rounded-full transition-colors active:scale-95",
+      "props": {}
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/ui.tsx",
+      "line": 118,
+      "base": "inline-flex min-h-11 items-center gap-1.5 rounded-full border px-4 text-[14px] font-medium transition-colors",
+      "props": {}
+    },
+    {
+      "name": "OptionRow",
+      "file": "components/aspra/ui.tsx",
+      "line": 157,
+      "base": "flex w-full items-center gap-4 rounded-2xl px-4 py-3.5 text-left transition-colors",
+      "props": {}
+    },
+    {
+      "name": "Segmented",
+      "file": "components/aspra/ui.tsx",
+      "line": 252,
+      "base": "relative h-9 rounded-full text-[13.5px] font-medium transition-colors",
+      "props": {}
+    },
+    {
+      "name": "Sheet",
+      "file": "components/aspra/ui.tsx",
+      "line": 369,
+      "base": "absolute inset-0 bg-obsidian/35 backdrop-blur-[2px]",
+      "props": {}
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/ui.tsx",
+      "line": 455,
+      "base": "min-h-11 shrink-0 text-[14px] font-medium text-sea underline-offset-4 hover:underline",
+      "props": {}
+    }
+  ],
+  "components": [
+    {
+      "name": "Shell",
+      "file": "components/aspra/app.tsx",
+      "line": 23,
+      "exported": false,
+      "library": false,
+      "props": "{ initialKind: GuestKind | null }"
+    },
+    {
+      "name": "MainApp",
+      "file": "components/aspra/app.tsx",
+      "line": 107,
+      "exported": false,
+      "library": false,
+      "props": "{ onSwitchGuest: () => void; hidden: boolean }"
+    },
+    {
+      "name": "TabPanel",
+      "file": "components/aspra/app.tsx",
+      "line": 150,
+      "exported": false,
+      "library": false,
+      "props": "{ active: boolean; children: React.ReactNode }"
+    },
+    {
+      "name": "TopBar",
+      "file": "components/aspra/app.tsx",
+      "line": 163,
+      "exported": false,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "SideNav",
+      "file": "components/aspra/app.tsx",
+      "line": 183,
+      "exported": false,
+      "library": false,
+      "props": "{ dark: boolean }"
+    },
+    {
+      "name": "TabBar",
+      "file": "components/aspra/app.tsx",
+      "line": 240,
+      "exported": false,
+      "library": false,
+      "props": "{ dark: boolean }"
+    },
+    {
+      "name": "ProfileSheet",
+      "file": "components/aspra/app.tsx",
+      "line": 293,
+      "exported": false,
+      "library": false,
+      "props": "{ onSwitchGuest: () => void }"
+    },
+    {
+      "name": "Toast",
+      "file": "components/aspra/app.tsx",
+      "line": 356,
+      "exported": false,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "AspraApp",
+      "file": "components/aspra/app.tsx",
+      "line": 397,
+      "exported": true,
+      "library": false,
+      "props": "{ initialKind: GuestKind | null }"
+    },
+    {
+      "name": "BookingFlow",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 54,
+      "exported": true,
+      "library": false,
+      "props": "{ mode: \"new\" | \"return\" onClose: () => void onDone: () => void }"
+    },
+    {
+      "name": "FlowFooter",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 347,
+      "exported": false,
+      "library": false,
+      "props": "{ draft: Booking nights: number label: string /** The step cannot be passed yet. The reason is shown on the step itself. */ blocked: boolean onNext: () => void }"
+    },
+    {
+      "name": "SuitePicker",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 377,
+      "exported": false,
+      "library": false,
+      "props": "{ value: SuiteId onChange: (id: SuiteId) => void onTour: (id: SuiteId) => void lastSuite?: string }"
+    },
+    {
+      "name": "DatesStep",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 469,
+      "exported": false,
+      "library": false,
+      "props": "{ draft: Booking setDraft: React.Dispatch<React.SetStateAction<Booking>> nights: number error: string }"
+    },
+    {
+      "name": "Review",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 530,
+      "exported": false,
+      "library": false,
+      "props": "{ draft: Booking prefs: Prefs mode: \"new\" | \"return\" name: { first: string; last: string; email: string } setName: React.Dispatch<React.SetStateAction<{ first: string; last: string; email: string }>> remembered?: string[] errors: { dates: string; first: string; email: string } /** True once the guest has tried to confirm, so missing fields are pointed out. */ attempted: boolean onEdit: (step: StepId) => void canEdit: (step: StepId) => boolean }"
+    },
+    {
+      "name": "Row",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 686,
+      "exported": false,
+      "library": false,
+      "props": "{ label: string; value: string; strong?: boolean }"
+    },
+    {
+      "name": "Confirmed",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 695,
+      "exported": false,
+      "library": false,
+      "props": "{ booking: Booking; firstName: string; onOpen: () => void }"
+    },
+    {
+      "name": "Splash",
+      "file": "components/aspra/entry/gate.tsx",
+      "line": 9,
+      "exported": true,
+      "library": false,
+      "props": "{ onDone: () => void }"
+    },
+    {
+      "name": "Gate",
+      "file": "components/aspra/entry/gate.tsx",
+      "line": 72,
+      "exported": true,
+      "library": false,
+      "props": "{ onChoose: (k: GuestKind) => void }"
+    },
+    {
+      "name": "BookedEntry",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 14,
+      "exported": true,
+      "library": false,
+      "props": "{ onClose: () => void; onDone: () => void }"
+    },
+    {
+      "name": "ReturningEntry",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 191,
+      "exported": true,
+      "library": false,
+      "props": "{ onClose: () => void onRebook: () => void onBrowse: () => void }"
+    },
+    {
+      "name": "StayCalendar",
+      "file": "components/aspra/entry/stay-calendar.tsx",
+      "line": 31,
+      "exported": true,
+      "library": false,
+      "props": "{ checkIn: string checkOut: string suiteId: SuiteId onChange: (checkIn: string, checkOut: string) => void }"
+    },
+    {
+      "name": "GuestFeedbackPanel",
+      "file": "components/aspra/guest-feedback-panel.tsx",
+      "line": 6,
+      "exported": true,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 27,
+      "exported": false,
+      "library": false,
+      "props": "{ label: string; hint?: string; children: React.ReactNode }"
+    },
+    {
+      "name": "TripPrefs",
+      "file": "components/aspra/shared.tsx",
+      "line": 39,
+      "exported": true,
+      "library": false,
+      "props": "{ prefs: Prefs; onChange: (p: Partial<Prefs>) => void }"
+    },
+    {
+      "name": "SuitePrefs",
+      "file": "components/aspra/shared.tsx",
+      "line": 120,
+      "exported": true,
+      "library": false,
+      "props": "{ prefs: Prefs onChange: (p: Partial<Prefs>) => void /** Show bed, pillows and temperature first, and keep the rest behind \"More choices\". */ compact?: boolean }"
+    },
+    {
+      "name": "ExtrasPicker",
+      "file": "components/aspra/shared.tsx",
+      "line": 289,
+      "exported": true,
+      "library": false,
+      "props": "{ selected: ExtraId[] onToggle: (id: ExtraId) => void }"
+    },
+    {
+      "name": "StaySheet",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 11,
+      "exported": true,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "Line",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 110,
+      "exported": false,
+      "library": false,
+      "props": "{ label: string; value: string; strong?: boolean }"
+    },
+    {
+      "name": "AspraProvider",
+      "file": "components/aspra/store.tsx",
+      "line": 101,
+      "exported": true,
+      "library": false,
+      "props": "{ children: React.ReactNode }"
+    },
+    {
+      "name": "ConciergeTab",
+      "file": "components/aspra/tabs/concierge.tsx",
+      "line": 41,
+      "exported": true,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "JournalTab",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 20,
+      "exported": true,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "JournalEntry",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 124,
+      "exported": false,
+      "library": false,
+      "props": "{ day: string; title: string; note: string; image: string }"
+    },
+    {
+      "name": "Keepsakes",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 136,
+      "exported": true,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "PlanTab",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 24,
+      "exported": true,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "TodayTab",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 49,
+      "exported": true,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "BeforeStay",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 80,
+      "exported": false,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "DuringStay",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 259,
+      "exported": false,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "TimelineItem",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 397,
+      "exported": false,
+      "library": false,
+      "props": "{ time: string title: string detail: string status?: \"confirmed\" | \"requested\" icon?: React.ReactNode }"
+    },
+    {
+      "name": "StatusPill",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 428,
+      "exported": true,
+      "library": false,
+      "props": "{ status: \"confirmed\" | \"requested\" }"
+    },
+    {
+      "name": "AfterStay",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 443,
+      "exported": false,
+      "library": false,
+      "props": ""
+    },
+    {
+      "name": "AskNefeli",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 498,
+      "exported": false,
+      "library": false,
+      "props": "{ title: string; prompts: string[]; onAsk: (t: string) => void; className?: string }"
+    },
+    {
+      "name": "ArchMark",
+      "file": "components/aspra/ui.tsx",
+      "line": 12,
+      "exported": true,
+      "library": true,
+      "props": "{ className?: string }"
+    },
+    {
+      "name": "Wordmark",
+      "file": "components/aspra/ui.tsx",
+      "line": 22,
+      "exported": true,
+      "library": true,
+      "props": "{ className?: string; tone?: \"dark\" | \"light\" }"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/ui.tsx",
+      "line": 45,
+      "exported": true,
+      "library": true,
+      "props": ""
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/ui.tsx",
+      "line": 71,
+      "exported": true,
+      "library": true,
+      "props": "React.ButtonHTMLAttributes<HTMLButtonElement> & { label: string }"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/ui.tsx",
+      "line": 93,
+      "exported": true,
+      "library": true,
+      "props": "{ src: string alt: string className?: string priority?: boolean }"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/ui.tsx",
+      "line": 118,
+      "exported": true,
+      "library": true,
+      "props": "{ selected: boolean onClick: () => void children: React.ReactNode tone?: \"light\" | \"dark\" className?: string }"
+    },
+    {
+      "name": "OptionRow",
+      "file": "components/aspra/ui.tsx",
+      "line": 157,
+      "exported": true,
+      "library": true,
+      "props": "{ selected: boolean onClick: () => void title: string detail?: string aside?: React.ReactNode role?: \"radio\" | \"checkbox\" }"
+    },
+    {
+      "name": "Counter",
+      "file": "components/aspra/ui.tsx",
+      "line": 204,
+      "exported": true,
+      "library": true,
+      "props": "{ label: string hint?: string value: number min?: number max?: number onChange: (n: number) => void }"
+    },
+    {
+      "name": "Segmented",
+      "file": "components/aspra/ui.tsx",
+      "line": 252,
+      "exported": true,
+      "library": true,
+      "props": "{ value: T options: Array<{ id: T; label: string }> onChange: (v: T) => void label: string tone?: \"light\" | \"dark\" }"
+    },
+    {
+      "name": "FlowHeader",
+      "file": "components/aspra/ui.tsx",
+      "line": 309,
+      "exported": true,
+      "library": true,
+      "props": "{ onBack?: () => void step?: number steps?: number title?: string onClose?: () => void tone?: \"light\" | \"dark\" }"
+    },
+    {
+      "name": "Sheet",
+      "file": "components/aspra/ui.tsx",
+      "line": 369,
+      "exported": true,
+      "library": true,
+      "props": "{ open: boolean onClose: () => void title: string children: React.ReactNode footer?: React.ReactNode }"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/ui.tsx",
+      "line": 438,
+      "exported": true,
+      "library": true,
+      "props": "{ children: React.ReactNode action?: React.ReactNode className?: string }"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/ui.tsx",
+      "line": 455,
+      "exported": true,
+      "library": true,
+      "props": "{ children: React.ReactNode onClick: () => void className?: string }"
+    },
+    {
+      "name": "FullScreen",
+      "file": "components/aspra/ui.tsx",
+      "line": 479,
+      "exported": true,
+      "library": true,
+      "props": "{ children: React.ReactNode className?: string }"
+    },
+    {
+      "name": "Step",
+      "file": "components/aspra/ui.tsx",
+      "line": 514,
+      "exported": true,
+      "library": true,
+      "props": "{ id: string | number; children: React.ReactNode; dir?: number }"
+    }
+  ],
+  "duplicates": [
+    [
+      {
+        "name": "Row",
+        "file": "components/aspra/entry/booking-flow.tsx",
+        "line": 686,
+        "props": "{ label: string; value: string; strong?: boolean }"
+      },
+      {
+        "name": "Line",
+        "file": "components/aspra/stay-sheet.tsx",
+        "line": 110,
+        "props": "{ label: string; value: string; strong?: boolean }"
+      }
+    ]
+  ],
+  "usage": [
+    {
+      "name": "Splash",
+      "file": "components/aspra/app.tsx",
+      "line": 65,
+      "inside": "Shell"
+    },
+    {
+      "name": "Gate",
+      "file": "components/aspra/app.tsx",
+      "line": 67,
+      "inside": "Shell"
+    },
+    {
+      "name": "BookingFlow",
+      "file": "components/aspra/app.tsx",
+      "line": 68,
+      "inside": "Shell"
+    },
+    {
+      "name": "BookedEntry",
+      "file": "components/aspra/app.tsx",
+      "line": 69,
+      "inside": "Shell"
+    },
+    {
+      "name": "ReturningEntry",
+      "file": "components/aspra/app.tsx",
+      "line": 71,
+      "inside": "Shell"
+    },
+    {
+      "name": "BookingFlow",
+      "file": "components/aspra/app.tsx",
+      "line": 83,
+      "inside": "Shell"
+    },
+    {
+      "name": "MainApp",
+      "file": "components/aspra/app.tsx",
+      "line": 95,
+      "inside": "Shell"
+    },
+    {
+      "name": "SideNav",
+      "file": "components/aspra/app.tsx",
+      "line": 120,
+      "inside": "MainApp"
+    },
+    {
+      "name": "TopBar",
+      "file": "components/aspra/app.tsx",
+      "line": 121,
+      "inside": "MainApp"
+    },
+    {
+      "name": "TabPanel",
+      "file": "components/aspra/app.tsx",
+      "line": 124,
+      "inside": "MainApp"
+    },
+    {
+      "name": "TodayTab",
+      "file": "components/aspra/app.tsx",
+      "line": 124,
+      "inside": "MainApp"
+    },
+    {
+      "name": "TabPanel",
+      "file": "components/aspra/app.tsx",
+      "line": 125,
+      "inside": "MainApp"
+    },
+    {
+      "name": "PlanTab",
+      "file": "components/aspra/app.tsx",
+      "line": 125,
+      "inside": "MainApp"
+    },
+    {
+      "name": "TabPanel",
+      "file": "components/aspra/app.tsx",
+      "line": 126,
+      "inside": "MainApp"
+    },
+    {
+      "name": "ConciergeTab",
+      "file": "components/aspra/app.tsx",
+      "line": 126,
+      "inside": "MainApp"
+    },
+    {
+      "name": "TabPanel",
+      "file": "components/aspra/app.tsx",
+      "line": 127,
+      "inside": "MainApp"
+    },
+    {
+      "name": "JournalTab",
+      "file": "components/aspra/app.tsx",
+      "line": 127,
+      "inside": "MainApp"
+    },
+    {
+      "name": "TabBar",
+      "file": "components/aspra/app.tsx",
+      "line": 129,
+      "inside": "MainApp"
+    },
+    {
+      "name": "ProfileSheet",
+      "file": "components/aspra/app.tsx",
+      "line": 130,
+      "inside": "MainApp"
+    },
+    {
+      "name": "StaySheet",
+      "file": "components/aspra/app.tsx",
+      "line": 131,
+      "inside": "MainApp"
+    },
+    {
+      "name": "Toast",
+      "file": "components/aspra/app.tsx",
+      "line": 145,
+      "inside": "MainApp"
+    },
+    {
+      "name": "Wordmark",
+      "file": "components/aspra/app.tsx",
+      "line": 169,
+      "inside": "TopBar"
+    },
+    {
+      "name": "Wordmark",
+      "file": "components/aspra/app.tsx",
+      "line": 190,
+      "inside": "SideNav"
+    },
+    {
+      "name": "Sheet",
+      "file": "components/aspra/app.tsx",
+      "line": 299,
+      "inside": "ProfileSheet"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/app.tsx",
+      "line": 305,
+      "inside": "ProfileSheet"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/app.tsx",
+      "line": 308,
+      "inside": "ProfileSheet"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/app.tsx",
+      "line": 324,
+      "inside": "ProfileSheet"
+    },
+    {
+      "name": "TripPrefs",
+      "file": "components/aspra/app.tsx",
+      "line": 348,
+      "inside": "ProfileSheet"
+    },
+    {
+      "name": "SuitePrefs",
+      "file": "components/aspra/app.tsx",
+      "line": 350,
+      "inside": "ProfileSheet"
+    },
+    {
+      "name": "AspraProvider",
+      "file": "components/aspra/app.tsx",
+      "line": 399,
+      "inside": "AspraApp"
+    },
+    {
+      "name": "Shell",
+      "file": "components/aspra/app.tsx",
+      "line": 400,
+      "inside": "AspraApp"
+    },
+    {
+      "name": "Confirmed",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 191,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "FullScreen",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 198,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "FlowHeader",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 199,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "Step",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 208,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 216,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "SuitePicker",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 221,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "DatesStep",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 233,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "Segmented",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 239,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "ExtrasPicker",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 263,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "TripPrefs",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 267,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 270,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "SuitePrefs",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 273,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "Review",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 278,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "FlowFooter",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 296,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "Sheet",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 303,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 309,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 312,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 322,
+      "inside": "BookingFlow"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 370,
+      "inside": "FlowFooter"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 404,
+      "inside": "SuitePicker"
+    },
+    {
+      "name": "StayCalendar",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 486,
+      "inside": "DatesStep"
+    },
+    {
+      "name": "Counter",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 499,
+      "inside": "DatesStep"
+    },
+    {
+      "name": "Counter",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 507,
+      "inside": "DatesStep"
+    },
+    {
+      "name": "Counter",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 514,
+      "inside": "DatesStep"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 562,
+      "inside": "Review"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 573,
+      "inside": "Review"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 574,
+      "inside": "Review"
+    },
+    {
+      "name": "Row",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 586,
+      "inside": "Review"
+    },
+    {
+      "name": "Row",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 588,
+      "inside": "Review"
+    },
+    {
+      "name": "Row",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 590,
+      "inside": "Review"
+    },
+    {
+      "name": "Row",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 591,
+      "inside": "Review"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 594,
+      "inside": "Review"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 616,
+      "inside": "Review"
+    },
+    {
+      "name": "FullScreen",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 698,
+      "inside": "Confirmed"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 700,
+      "inside": "Confirmed"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 724,
+      "inside": "Confirmed"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/entry/gate.tsx",
+      "line": 81,
+      "inside": "Gate"
+    },
+    {
+      "name": "Wordmark",
+      "file": "components/aspra/entry/gate.tsx",
+      "line": 85,
+      "inside": "Gate"
+    },
+    {
+      "name": "ArchMark",
+      "file": "components/aspra/entry/gate.tsx",
+      "line": 124,
+      "inside": "Gate"
+    },
+    {
+      "name": "FullScreen",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 35,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "FlowHeader",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 36,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 65,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "FullScreen",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 80,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 82,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "FlowHeader",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 85,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 114,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 117,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "FullScreen",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 126,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "FlowHeader",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 127,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "Step",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 136,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "TripPrefs",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 145,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 148,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "SuitePrefs",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 151,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 159,
+      "inside": "BookedEntry"
+    },
+    {
+      "name": "FullScreen",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 204,
+      "inside": "ReturningEntry"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 206,
+      "inside": "ReturningEntry"
+    },
+    {
+      "name": "FlowHeader",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 209,
+      "inside": "ReturningEntry"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 225,
+      "inside": "ReturningEntry"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 229,
+      "inside": "ReturningEntry"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 243,
+      "inside": "ReturningEntry"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 42,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "OptionRow",
+      "file": "components/aspra/shared.tsx",
+      "line": 45,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 56,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Segmented",
+      "file": "components/aspra/shared.tsx",
+      "line": 57,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 68,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 73,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 89,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 92,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 99,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 104,
+      "inside": "TripPrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 132,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/shared.tsx",
+      "line": 138,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/shared.tsx",
+      "line": 149,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 163,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 166,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 173,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 176,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 202,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 205,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 213,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 216,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 223,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 226,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 233,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 236,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 243,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 246,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 253,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 256,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 263,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Chip",
+      "file": "components/aspra/shared.tsx",
+      "line": 266,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "Field",
+      "file": "components/aspra/shared.tsx",
+      "line": 273,
+      "inside": "SuitePrefs"
+    },
+    {
+      "name": "OptionRow",
+      "file": "components/aspra/shared.tsx",
+      "line": 301,
+      "inside": "ExtrasPicker"
+    },
+    {
+      "name": "Sheet",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 27,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "Line",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 35,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "Line",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 36,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "Line",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 37,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "Line",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 38,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 44,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 54,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "ExtrasPicker",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 70,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 93,
+      "inside": "StaySheet"
+    },
+    {
+      "name": "Toast",
+      "file": "components/aspra/store.tsx",
+      "line": 112,
+      "inside": "AspraProvider"
+    },
+    {
+      "name": "ArchMark",
+      "file": "components/aspra/tabs/concierge.tsx",
+      "line": 173,
+      "inside": "ConciergeTab"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 42,
+      "inside": "JournalTab"
+    },
+    {
+      "name": "JournalEntry",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 54,
+      "inside": "JournalTab"
+    },
+    {
+      "name": "JournalEntry",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 62,
+      "inside": "JournalTab"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 95,
+      "inside": "JournalTab"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 106,
+      "inside": "JournalTab"
+    },
+    {
+      "name": "JournalEntry",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 111,
+      "inside": "JournalTab"
+    },
+    {
+      "name": "Keepsakes",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 118,
+      "inside": "JournalTab"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 127,
+      "inside": "JournalEntry"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 145,
+      "inside": "Keepsakes"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 160,
+      "inside": "Keepsakes"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 168,
+      "inside": "Keepsakes"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 201,
+      "inside": "Keepsakes"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 220,
+      "inside": "Keepsakes"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 41,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 118,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "StatusPill",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 121,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 128,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 153,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 156,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 163,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 179,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "Sheet",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 187,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 196,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 206,
+      "inside": "PlanTab"
+    },
+    {
+      "name": "AfterStay",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 72,
+      "inside": "TodayTab"
+    },
+    {
+      "name": "BeforeStay",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 72,
+      "inside": "TodayTab"
+    },
+    {
+      "name": "DuringStay",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 72,
+      "inside": "TodayTab"
+    },
+    {
+      "name": "AfterStay",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 72,
+      "inside": "TodayTab"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 94,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 111,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 140,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 150,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 150,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 175,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 175,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 192,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "StatusPill",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 199,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 208,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "AskNefeli",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 241,
+      "inside": "BeforeStay"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 301,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "TextLink",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 301,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "TimelineItem",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 303,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "TimelineItem",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 306,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "TimelineItem",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 308,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 313,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "SectionTitle",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 352,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 357,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 366,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "AskNefeli",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 387,
+      "inside": "DuringStay"
+    },
+    {
+      "name": "StatusPill",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 419,
+      "inside": "TimelineItem"
+    },
+    {
+      "name": "Photo",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 452,
+      "inside": "AfterStay"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 464,
+      "inside": "AfterStay"
+    },
+    {
+      "name": "Keepsakes",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 469,
+      "inside": "AfterStay"
+    },
+    {
+      "name": "Button",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 477,
+      "inside": "AfterStay"
+    },
+    {
+      "name": "AskNefeli",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 487,
+      "inside": "AfterStay"
+    },
+    {
+      "name": "ArchMark",
+      "file": "components/aspra/ui.tsx",
+      "line": 31,
+      "inside": "Wordmark"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/ui.tsx",
+      "line": 226,
+      "inside": "Counter"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/ui.tsx",
+      "line": 237,
+      "inside": "Counter"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/ui.tsx",
+      "line": 333,
+      "inside": "FlowHeader"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/ui.tsx",
+      "line": 343,
+      "inside": "FlowHeader"
+    },
+    {
+      "name": "IconButton",
+      "file": "components/aspra/ui.tsx",
+      "line": 419,
+      "inside": "Sheet"
+    }
+  ],
+  "navigation": [
+    {
+      "call": "setEntry(\"app\")",
+      "file": "components/aspra/app.tsx",
+      "line": 42,
+      "inside": "Shell"
+    },
+    {
+      "call": "setEntry(\"gate\")",
+      "file": "components/aspra/app.tsx",
+      "line": 46,
+      "inside": "Shell"
+    },
+    {
+      "call": "setEntry(\"gate\")",
+      "file": "components/aspra/app.tsx",
+      "line": 51,
+      "inside": "Shell"
+    },
+    {
+      "call": "setEntry(\"app\")",
+      "file": "components/aspra/app.tsx",
+      "line": 54,
+      "inside": "Shell"
+    },
+    {
+      "call": "setEntry(\"rebook\")",
+      "file": "components/aspra/app.tsx",
+      "line": 58,
+      "inside": "Shell"
+    },
+    {
+      "call": "setEntry(\"rebook\")",
+      "file": "components/aspra/app.tsx",
+      "line": 74,
+      "inside": "Shell"
+    },
+    {
+      "call": "setPhase(\"after\")",
+      "file": "components/aspra/app.tsx",
+      "line": 76,
+      "inside": "Shell"
+    },
+    {
+      "call": "setTab(\"journal\")",
+      "file": "components/aspra/app.tsx",
+      "line": 77,
+      "inside": "Shell"
+    },
+    {
+      "call": "setEntry(\"app\")",
+      "file": "components/aspra/app.tsx",
+      "line": 78,
+      "inside": "Shell"
+    },
+    {
+      "call": "setTab(\"today\")",
+      "file": "components/aspra/app.tsx",
+      "line": 88,
+      "inside": "Shell"
+    },
+    {
+      "call": "setEntry(\"app\")",
+      "file": "components/aspra/app.tsx",
+      "line": 89,
+      "inside": "Shell"
+    },
+    {
+      "call": "setProfileOpen(true)",
+      "file": "components/aspra/app.tsx",
+      "line": 171,
+      "inside": "TopBar"
+    },
+    {
+      "call": "setProfileOpen(true)",
+      "file": "components/aspra/app.tsx",
+      "line": 226,
+      "inside": "SideNav"
+    },
+    {
+      "call": "setStayOpen(true)",
+      "file": "components/aspra/app.tsx",
+      "line": 330,
+      "inside": "ProfileSheet"
+    },
+    {
+      "call": "setPhase(\"before\")",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 170,
+      "inside": "BookingFlow"
+    },
+    {
+      "call": "setLeaving(true)",
+      "file": "components/aspra/entry/booking-flow.tsx",
+      "line": 188,
+      "inside": "BookingFlow"
+    },
+    {
+      "call": "setStage(\"welcome\")",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 30,
+      "inside": "BookedEntry"
+    },
+    {
+      "call": "setStage(\"find\")",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 85,
+      "inside": "BookedEntry"
+    },
+    {
+      "call": "setStage(\"trip\")",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 114,
+      "inside": "BookedEntry"
+    },
+    {
+      "call": "setTour(true)",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 148,
+      "inside": "BookedEntry"
+    },
+    {
+      "call": "setStage(\"room\")",
+      "file": "components/aspra/entry/guest-entry.tsx",
+      "line": 164,
+      "inside": "BookedEntry"
+    },
+    {
+      "call": "setTourOpen(true)",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 49,
+      "inside": "StaySheet"
+    },
+    {
+      "call": "setProfileOpen(true)",
+      "file": "components/aspra/stay-sheet.tsx",
+      "line": 59,
+      "inside": "StaySheet"
+    },
+    {
+      "call": "setPhase(\"before\")",
+      "file": "components/aspra/store.tsx",
+      "line": 164,
+      "inside": "AspraProvider"
+    },
+    {
+      "call": "setTabState(\"today\")",
+      "file": "components/aspra/store.tsx",
+      "line": 165,
+      "inside": "AspraProvider"
+    },
+    {
+      "call": "setTabState(\"today\")",
+      "file": "components/aspra/store.tsx",
+      "line": 180,
+      "inside": "AspraProvider"
+    },
+    {
+      "call": "setTab(\"concierge\")",
+      "file": "components/aspra/store.tsx",
+      "line": 242,
+      "inside": "AspraProvider"
+    },
+    {
+      "call": "event aspra:rebook",
+      "file": "components/aspra/tabs/concierge.tsx",
+      "line": 158,
+      "inside": "ConciergeTab"
+    },
+    {
+      "call": "setShowRecipe(true)",
+      "file": "components/aspra/tabs/journal.tsx",
+      "line": 160,
+      "inside": "Keepsakes"
+    },
+    {
+      "call": "event aspra:rebook",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 41,
+      "inside": "PlanTab"
+    },
+    {
+      "call": "setAdding(true)",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 153,
+      "inside": "PlanTab"
+    },
+    {
+      "call": "setStayOpen(true)",
+      "file": "components/aspra/tabs/plan.tsx",
+      "line": 179,
+      "inside": "PlanTab"
+    },
+    {
+      "call": "setStayOpen(true)",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 150,
+      "inside": "BeforeStay"
+    },
+    {
+      "call": "setTourOpen(true)",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 164,
+      "inside": "BeforeStay"
+    },
+    {
+      "call": "setTab(\"plan\")",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 175,
+      "inside": "BeforeStay"
+    },
+    {
+      "call": "setTab(\"plan\")",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 178,
+      "inside": "BeforeStay"
+    },
+    {
+      "call": "setTab(\"plan\")",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 301,
+      "inside": "DuringStay"
+    },
+    {
+      "call": "setTab(\"journal\")",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 464,
+      "inside": "AfterStay"
+    },
+    {
+      "call": "event aspra:rebook",
+      "file": "components/aspra/tabs/today.tsx",
+      "line": 480,
+      "inside": "AfterStay"
+    }
+  ],
+  "unusedKit": {
+    "dir": "components/ui",
+    "files": 57,
+    "importedBy": []
+  }
+}

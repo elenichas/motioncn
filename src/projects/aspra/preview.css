@@ -1,0 +1,15 @@
+/* Preview frames for the Aspra canvas: Tailwind + the repo's own theme, nothing from motioncn. */
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "./";
+@import "./theme.css";
+
+/* next/font sets these in the repo; here the same Google fonts are loaded by preview.html */
+:root {
+  --font-instrument: "Instrument Sans";
+  --font-bricolage: "Bricolage Grotesque";
+}
+html,
+body {
+  font-family: var(--font-sans);
+}

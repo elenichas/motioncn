@@ -41,7 +41,8 @@ type Props = {
 /**
  * Figma-style infinite canvas.
  * - Drag empty space / middle mouse / Space+drag → pan
- * - Wheel → pan, Ctrl/⌘ + wheel or trackpad pinch → zoom at cursor
+ * - Mouse wheel → zoom at cursor; trackpad scroll → pan; Shift + wheel → pan sideways
+ * - Ctrl/⌘ + wheel or trackpad pinch → zoom at cursor
  * Interactions inside frames ([data-frame-body]) are left to the components.
  */
 export function Canvas({ view, setView, onBackgroundClick, worldRef, children }: Props) {
@@ -86,11 +87,17 @@ export function Canvas({ view, setView, onBackgroundClick, worldRef, children }:
 
   useEffect(() => {
     const el = rootRef.current!
+    // A mouse wheel sends coarse, whole steps (or lines); a trackpad sends small fractional deltas.
+    const isMouseWheel = (e: WheelEvent) => e.deltaMode === 1 || (e.deltaX === 0 && Math.abs(e.deltaY) >= 40 && Number.isInteger(e.deltaY))
     const onWheel = (e: WheelEvent) => {
       e.preventDefault()
       const r = el.getBoundingClientRect()
       if (e.ctrlKey || e.metaKey) {
         const factor = Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0085))
+        setView((v) => zoomAt(v, factor, e.clientX - r.left, e.clientY - r.top))
+      } else if (isMouseWheel(e) && !e.shiftKey) {
+        // mouse wheel zooms at the cursor; Shift + wheel pans sideways
+        const factor = Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.06 : 0.0022))
         setView((v) => zoomAt(v, factor, e.clientX - r.left, e.clientY - r.top))
       } else {
         setView((v) => ({ ...v, x: v.x - e.deltaX, y: v.y - e.deltaY }))
